@@ -1,4 +1,5 @@
 export interface Options {
+  cwd?: string
   appPath?: string
   namespaces?: Namespaces
   separator?: string
@@ -9,6 +10,7 @@ export interface Options {
 export type ResolvedOptions = Required<Options>
 
 export type Namespace = Record<string, string | string[]>
+export type ResolvedNamespace = Record<string, string[]>
 export type NamespacesAry = Namespace[]
 export interface NamespacesArgs {
   npm(pkg: string, dir: string): Namespace

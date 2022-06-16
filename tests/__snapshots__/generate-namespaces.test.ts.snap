@@ -1,0 +1,34 @@
+// Vitest Snapshot v1
+
+exports[`generate-namespaces > simple options 1`] = `
+"{
+      }"
+`;
+
+exports[`generate-namespaces > some namespaces 1`] = `
+"{
+        'MyPackage1': [
+          () => resolvePageWithVite(page, import.meta.glob('/../test_node_modules/my-plugin1/Pages/**/*.vue'), false),
+        ],
+        'MyPackage2': [
+          () => resolvePageWithVite(page, import.meta.glob('/../test_node_modules/my-plugin2/other-pages/**/*.vue'), false),
+        ],
+        'MyPhpPackage': [
+          () => resolvePageWithVite(page, import.meta.glob('/../test_vendor/ycs77/my-php-package/resources/js/Pages/**/*.vue'), false),
+        ],
+      }"
+`;
+
+exports[`generate-namespaces > ssr 1`] = `
+"{
+        'MyPackage1': [
+          () => resolvePageWithVite(page, import.meta.globEager('/../test_node_modules/my-plugin1/Pages/**/*.vue'), false),
+        ],
+        'MyPackage2': [
+          () => resolvePageWithVite(page, import.meta.globEager('/../test_node_modules/my-plugin2/other-pages/**/*.vue'), false),
+        ],
+        'MyPhpPackage': [
+          () => resolvePageWithVite(page, import.meta.globEager('/../test_vendor/ycs77/my-php-package/resources/js/Pages/**/*.vue'), false),
+        ],
+      }"
+`;

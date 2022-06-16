@@ -1,4 +1,4 @@
-import { createUnplugin } from 'unplugin'
+import { type UnpluginContextMeta, createUnplugin } from 'unplugin'
 import { pageLoader } from './page-loader'
 import type { Options, ResolvedOptions } from './types'
 
@@ -7,18 +7,21 @@ const ids = [
   '~inertia',
 ]
 
-function resolveOptions(options: Options = {}) {
+function resolveOptions(options: Options, meta: UnpluginContextMeta) {
   return Object.assign({
+    cwd: process.cwd(),
     appPath: '',
     namespaces: [],
     separator: '::',
-    extension: '',
+    extension: !options.extension && meta.framework === 'vite'
+      ? '.vue'
+      : options.extension,
     ssr: false,
   }, options) as ResolvedOptions
 }
 
 export default createUnplugin<Options>((userOptions, meta) => {
-  const options = resolveOptions(userOptions)
+  const options = resolveOptions(userOptions || {}, meta)
 
   return {
     name: 'inertia-plugin',
