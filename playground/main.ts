@@ -1,19 +1,21 @@
-import { resolvePluginPage } from '~inertia'
+import { resolvePage, resolvePluginPage, resolvePageWithVite } from '~inertia'
 
-async function resolvePage(name: string) {
-  const page = await resolvePluginPage(name)
-  if (page) return page
-  return import(`./pages/${name}.ts`)
-}
+// return await resolvePluginPage(name) ?? import(`./pages/${name}.ts`)
 
-async function main(component: string) {
-  const page = await Promise.resolve(resolvePage(component)).then(module => {
-    return (module as Record<string, unknown>).default || module
-  })
+const resolve = resolvePage((name: string) => {
+  return resolvePageWithVite(name, import.meta.glob('./pages/**/*.ts'))
+})
+// const resolve = resolvePage((name: string) => import(`./pages/${name}.ts`))
+
+async function inertia(component: string) {
+  const page = await Promise.resolve(resolve(component))
+    .then(module => (module as Record<string, unknown>).default || module)
 
   document.getElementById('app')!.innerHTML = page.template
+  document.querySelector<HTMLElement>('#app ~ a')!.style.display = 'block'
 }
 
-// 'Page1'
-// 'MyPackage::Page1'
-main('MyPackage::Page3')
+// inertia('Page1')
+// inertia('Page2')
+// inertia('MyPackage::Page3')
+inertia('MyPackage2::Page222')

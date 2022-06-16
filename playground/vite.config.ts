@@ -5,6 +5,14 @@ import Inertia from '../src/vite'
 export default defineConfig({
   plugins: [
     Inspect(),
-    Inertia(),
+    Inertia({
+      // appPath: '',
+      namespaces: [
+        { 'MyPackage': 'modules/my-plugin/Pages' },
+        { 'MyPackage2': ['modules/my-plugin2/other-pages'] },
+      ],
+      // separator: '::',
+      extension: '.ts',
+    }),
   ],
 })
