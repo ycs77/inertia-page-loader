@@ -3,6 +3,10 @@ import { App, plugin } from '@inertiajs/inertia-vue3'
 import { resolvePage, resolvePageWithVite } from '~inertia'
 
 createApp({
+  mounted() {
+    document.querySelector<HTMLElement>('#app ~ a')!.style.display = 'block'
+  },
+  // @ts-expect-error
   render: () => h(App, {
     initialPage: {
       component: 'Page1',
@@ -17,7 +21,4 @@ createApp({
       return resolvePageWithVite(name, import.meta.glob('./pages/**/*.vue'))
     }),
   }),
-  mounted() {
-    document.querySelector<HTMLElement>('#app ~ a')!.style.display = 'block'
-  },
 }).use(plugin).mount('#app')

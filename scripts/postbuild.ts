@@ -10,7 +10,6 @@ async function run() {
     cwd: resolve(__dirname, '../dist'),
   })
   for (const file of files) {
-    // eslint-disable-next-line no-console
     console.log(chalk.cyan.inverse(' POST '), `Fix ${basename(file)}`)
     if (file === 'index.js') {
       // fix cjs exports

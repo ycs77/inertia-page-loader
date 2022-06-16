@@ -10,7 +10,7 @@ interface PackageNamespaceExtractorOptions {
 }
 
 function createPackageNamespaceExtractor(options: PackageNamespaceExtractorOptions) {
-  return (pkg: string, dir: string = options['dir']) => {
+  return (pkg: string, dir: string = options.dir) => {
     const fullpath = path.resolve(process.cwd(), dir, pkg, options.filename)
     if (!fs.existsSync(fullpath)) {
       throw new Error(`[inertia-plugin]: The ${options.name} "${pkg}" does not exist`)

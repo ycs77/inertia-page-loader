@@ -1,15 +1,15 @@
 import fs from 'fs'
 import path from 'path'
-import { resolveNamespaces } from './namespace'
 import type { UnpluginContextMeta } from 'unplugin'
 import type { ResolvedOptions } from '../types'
+import { resolveNamespaces } from './namespace'
 
 export function pageLoader(options: ResolvedOptions, meta: UnpluginContextMeta) {
   const appPath = getAppPath(options.appPath)
   const namespaces = resolveNamespaces(options.namespaces)
   const extension = !options.extension && meta.framework === 'vite' ? '.vue' : options.extension
 
-  const namespacesCode = Object.keys(namespaces).map(namespace => {
+  let namespacesCode = Object.keys(namespaces).map(namespace => {
     const modules = namespaces[namespace]
 
     let code = `\n        '${namespace}': [`
@@ -24,7 +24,9 @@ export function pageLoader(options: ResolvedOptions, meta: UnpluginContextMeta) 
     }
     code += '\n        ],'
     return code
-  }).join('') + '\n      '
+  }).join('')
+
+  namespacesCode += '\n      '
 
   return `
 export function resolvePage(resolver) {
@@ -96,10 +98,10 @@ function getAppPath(appPath?: string) {
     const appFullPath = resolveAppPath(appPath)
     if (appFullPath) return appFullPath
   }
-  throw new Error(`[inertia-plugin]: App file does not exist`)
+  throw new Error('[inertia-plugin]: App file does not exist')
 }
 
-function resolvePagesDir(appPath: string, dir: string, prefix: boolean = true) {
+function resolvePagesDir(appPath: string, dir: string, prefix = true) {
   const rootDir = path.dirname(appPath)
   const pagesDir = path.resolve(
     process.cwd(),
