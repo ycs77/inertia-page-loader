@@ -8,6 +8,12 @@ module.exports = {
         'jsonc/indent': ['error', 4],
       },
     },
+    {
+      files: ['**/*.md/*.*'],
+      rules: {
+        'jsonc/indent': 'off',
+      },
+    },
   ],
   rules: {
     '@typescript-eslint/ban-ts-comment': 'off',
