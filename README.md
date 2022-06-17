@@ -14,7 +14,7 @@ npm i inertia-plugin
 <summary>Vite</summary><br>
 
 ```ts
-// vite.config.ts
+// vite.config.js
 import Inertia from 'inertia-plugin/vite'
 
 export default defineConfig({
@@ -63,7 +63,7 @@ mix
 
 ## Usage with Vite
 
-Usage `inertia-plugin` with Vite:
+Add `inertia-plugin` to `vite.config.js`:
 
 ```js
 import Inertia from 'inertia-plugin/vite'
@@ -109,7 +109,7 @@ createInertiaApp({
 
 ## Laravel Mix
 
-Usage `inertia-plugin` with Laravel Mix:
+Add `inertia-plugin` to `webpack.mix.js`:
 
 ```js
 mix
