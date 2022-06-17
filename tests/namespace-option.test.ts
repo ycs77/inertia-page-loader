@@ -12,7 +12,7 @@ describe('namespace option', () => {
 
     expect(namespace).toMatchInlineSnapshot(`
 {
-  "MyPackage2": "test_node_modules/my-plugin2/other-pages",
+  "MyPackage2": "test_node_modules/my-plugin2/src/other-pages",
 }
 `)
   })

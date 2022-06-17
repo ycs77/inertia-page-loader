@@ -72,8 +72,8 @@ export default defineConfig({
   plugins: [
     Inertia({
       namespaces: [
-        { MyPackage1: 'node_modules/my-plugin1/Pages' },
-        { MyPackage2: 'node_modules/my-plugin2/Pages' },
+        { MyPackage1: 'node_modules/my-plugin1/src/Pages' },
+        { MyPackage2: 'node_modules/my-plugin2/src/Pages' },
       ],
     }),
   ],
@@ -117,8 +117,8 @@ mix
     plugins: [
       inertiaPlugin({
         namespaces: ({ npm, composer }) => [
-          { MyPackage1: 'node_modules/my-plugin1/Pages' },
-          { MyPackage2: 'node_modules/my-plugin2/Pages' },
+          { MyPackage1: 'node_modules/my-plugin1/src/Pages' },
+          { MyPackage2: 'node_modules/my-plugin2/src/Pages' },
         ],
       }),
     ],
@@ -158,8 +158,8 @@ export default defineConfig({
     Inertia({
       namespaces: ({ npm, composer }) => [
         // define namespace mapping:
-        { MyPackage1: 'node_modules/my-plugin1/Pages' },
-        { MyPackage2: 'node_modules/my-plugin2/Pages' },
+        { MyPackage1: 'node_modules/my-plugin1/src/Pages' },
+        { MyPackage2: 'node_modules/my-plugin2/src/Pages' },
 
         // load namespace from npm package:
         npm('my-plugin2'),
@@ -172,13 +172,13 @@ export default defineConfig({
 })
 ```
 
-If you created is npm package, must be added the `inertia` field to define the namespace mapping, for example in `node_modules/my-plugin2/package.json`, and you would put pages into `other-pages` directory:
+If you created is npm package, must be added the `inertia` field to define the namespace mapping, for example in `node_modules/my-plugin2/package.json`, and you would put pages into `src/other-pages` directory:
 
 ```json
 {
   "name": "my-plugin2",
   "inertia": {
-    "MyPackage2": "other-pages"
+    "MyPackage2": "src/other-pages"
   }
 }
 ```

@@ -14,8 +14,8 @@ describe('generate namespaces', () => {
   }
 
   const namespaces = <Namespaces>[
-    { MyPackage1: 'test_node_modules/my-plugin1/Pages' },
-    { MyPackage2: 'test_node_modules/my-plugin2/other-pages' },
+    { MyPackage1: 'test_node_modules/my-plugin1/src/Pages' },
+    { MyPackage2: 'test_node_modules/my-plugin2/src/other-pages' },
     { MyPhpPackage: 'test_vendor/ycs77/my-php-package/resources/js/Pages' },
   ]
 
