@@ -18,6 +18,10 @@ createApp({
       url: '/',
       version: '',
     },
-    resolveComponent: resolvePage((name: string) => resolvePageWithVite(name, import.meta.glob('./pages/**/*.vue'))),
+    resolveComponent: resolvePage((name: string) => {
+      return resolvePageWithVite(name, import.meta.glob('./pages/**/*.vue'))
+    }),
   }),
-}).use(plugin).mount('#app')
+})
+  .use(plugin)
+  .mount('#app')

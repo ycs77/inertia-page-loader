@@ -6,8 +6,18 @@ export function pageLoader(options: ResolvedOptions, meta: UnpluginContextMeta) 
   const namespacesCode = generateNamespacesCode(options, meta)
 
   return `
-export function resolvePage(resolver) {
-  return async name => await resolvePluginPage(name) ?? await resolver(name)
+export function resolvePage(resolver, transformPage) {
+  return async name => {
+    let page = await resolvePluginPage(name)
+    if (!page) {
+      page = await resolver(name)
+    }
+    page = page.default || page
+    if (transformPage) {
+      page = transformPage(page)
+    }
+    return page
+  }
 }
 
 export async function resolvePluginPage(name) {
