@@ -15,11 +15,11 @@ npm i inertia-plugin
 
 ```ts
 // vite.config.ts
-import Starter from 'inertia-plugin/vite'
+import Inertia from 'inertia-plugin/vite'
 
 export default defineConfig({
   plugins: [
-    Starter({ /* options */ }),
+    Inertia({ /* options */ }),
   ],
 })
 ```
@@ -28,22 +28,21 @@ Example: [`playground/`](./playground/)
 
 <br></details>
 
-<details>
+<!-- <details>
 <summary>Rollup</summary><br>
 
 ```ts
 // rollup.config.js
-import Starter from 'inertia-plugin/rollup'
+import Inertia from 'inertia-plugin/rollup'
 
 export default {
   plugins: [
-    Starter({ /* options */ }),
+    Inertia({ /* options */ }),
   ],
 }
 ```
 
-<br></details>
-
+<br></details> -->
 
 <details>
 <summary>Webpack</summary><br>
@@ -56,6 +55,24 @@ module.exports = {
     require('inertia-plugin/webpack')({ /* options */ })
   ]
 }
+```
+
+<br></details>
+
+<details>
+<summary>Laravel Mix</summary><br>
+
+```ts
+// webpack.mix.js
+const inertiaPlugin = require('inertia-plugin/webpack').default
+
+mix
+  .webpackConfig({
+    plugins: [
+      inertiaPlugin({ /* options */ }),
+    ],
+  })
+
 ```
 
 <br></details>

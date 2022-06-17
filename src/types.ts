@@ -1,9 +1,9 @@
 export interface Options {
   cwd?: string
-  appPath?: string
   namespaces?: Namespaces
   separator?: string
   extension?: string
+  import?: boolean
   ssr?: boolean
 }
 

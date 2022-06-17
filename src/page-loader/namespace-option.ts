@@ -1,13 +1,14 @@
 import fs from 'fs'
 import path from 'path'
-import type { Namespaces, ResolvedNamespace } from '../types'
+import { normalizePath } from 'vite'
+import type { Namespace, Namespaces, ResolvedNamespace } from '../types'
 
 export interface PackageNamespaceExtractorOptions {
   name: string
   filename: string
   dir: string
   cwd: string
-  parse(content: string): Record<string, string | string[]>
+  parse(content: string): Namespace
 }
 
 export function createPackageNamespaceExtractor(options: PackageNamespaceExtractorOptions) {
@@ -25,9 +26,9 @@ export function createPackageNamespaceExtractor(options: PackageNamespaceExtract
     for (const namespace in namespaces) {
       const mod = namespaces[namespace]
       if (Array.isArray(mod)) {
-        namespaces[namespace] = mod.map(mod => path.resolve(dir, pkg, mod).replaceAll('\\', '/'))
+        namespaces[namespace] = mod.map(mod => normalizePath(path.join(dir, pkg, mod)))
       } else {
-        namespaces[namespace] = path.resolve(dir, pkg, mod).replaceAll('\\', '/')
+        namespaces[namespace] = normalizePath(path.join(dir, pkg, mod))
       }
     }
     return namespaces

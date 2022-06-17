@@ -13,7 +13,6 @@ export default defineConfig({
         npm('my-plugin2', 'test_node_modules'),
         composer('ycs77/my-php-package', 'test_vendor'),
       ],
-      extension: '.vue',
     }),
   ],
 })

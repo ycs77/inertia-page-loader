@@ -10,12 +10,12 @@ const ids = [
 function resolveOptions(options: Options, meta: UnpluginContextMeta) {
   return Object.assign({
     cwd: process.cwd(),
-    appPath: '',
     namespaces: [],
     separator: '::',
     extension: !options.extension && meta.framework === 'vite'
       ? '.vue'
-      : options.extension,
+      : options.extension || '',
+    import: false,
     ssr: false,
   }, options) as ResolvedOptions
 }

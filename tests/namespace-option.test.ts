@@ -1,24 +1,30 @@
 import path from 'path'
-import { describe, expect, it, vi } from 'vitest'
+import { normalizePath } from 'vite'
+import { describe, expect, it } from 'vitest'
 import { createComposer, createNpm } from '../src/page-loader/namespace-option'
 
-describe('page-loader', () => {
-  const cwd = path.resolve(process.cwd(), 'tests')
+describe('namespace option', () => {
+  const cwd = normalizePath(path.resolve(process.cwd(), 'tests'))
 
   it('resolve NPM namespace', () => {
-    const spy = vi.spyOn(process, 'cwd')
-    spy.mockReturnValue('/home/inertia-plugin')
-
     const npm = createNpm(cwd)
     const namespace = npm('my-plugin2', 'test_node_modules')
 
-    expect(namespace).toMatchSnapshot()
+    expect(namespace).toMatchInlineSnapshot(`
+{
+  "MyPackage2": "test_node_modules/my-plugin2/other-pages",
+}
+`)
   })
 
   it('resolve Composer namespace', () => {
     const composer = createComposer(cwd)
     const namespace = composer('ycs77/my-php-package', 'test_vendor')
 
-    expect(namespace).toMatchSnapshot()
+    expect(namespace).toMatchInlineSnapshot(`
+{
+  "MyPhpPackage": "test_vendor/ycs77/my-php-package/resources/js/Pages",
+}
+`)
   })
 })

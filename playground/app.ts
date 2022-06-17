@@ -13,12 +13,11 @@ createApp({
       // component: 'Page2',
       // component: 'MyPackage1::Page3',
       // component: 'MyPackage2::Page222',
+      // component: 'MyPhpPackage::PhpPackagePage',
       props: {},
       url: '/',
       version: '',
     },
-    resolveComponent: resolvePage((name: string) => {
-      return resolvePageWithVite(name, import.meta.glob('./pages/**/*.vue'))
-    }),
+    resolveComponent: resolvePage((name: string) => resolvePageWithVite(name, import.meta.glob('./pages/**/*.vue'))),
   }),
 }).use(plugin).mount('#app')

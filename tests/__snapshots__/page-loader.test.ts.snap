@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`page-loader > base 1`] = `
+exports[`page loader > base 1`] = `
 "
 export function resolvePage(resolver) {
   return async name => await resolvePluginPage(name) ?? await resolver(name)
@@ -12,13 +12,13 @@ export async function resolvePluginPage(name) {
     if (namespace && page) {
       const namespaces = {
         'MyPackage1': [
-          () => resolvePageWithVite(page, import.meta.glob('/../test_node_modules/my-plugin1/Pages/**/*.vue'), false),
+          () => resolvePageWithVite(page, import.meta.glob('/test_node_modules/my-plugin1/Pages/**/*.vue'), false),
         ],
         'MyPackage2': [
-          () => resolvePageWithVite(page, import.meta.glob('/../test_node_modules/my-plugin2/other-pages/**/*.vue'), false),
+          () => resolvePageWithVite(page, import.meta.glob('/test_node_modules/my-plugin2/other-pages/**/*.vue'), false),
         ],
         'MyPhpPackage': [
-          () => resolvePageWithVite(page, import.meta.glob('/../test_vendor/ycs77/my-php-package/resources/js/Pages/**/*.vue'), false),
+          () => resolvePageWithVite(page, import.meta.glob('/test_vendor/ycs77/my-php-package/resources/js/Pages/**/*.vue'), false),
         ],
       }
       if (!namespaces[namespace]) {
