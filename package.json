@@ -2,7 +2,7 @@
   "name": "inertia-plugin",
   "version": "0.1.0",
   "packageManager": "pnpm@7.1.1",
-  "description": "The plugin system for Inertia.js",
+  "description": "The plugin page loader for Inertia.js",
   "author": "Lucas Yang <yangchenshin77@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/antfu/inertia-plugin#readme",
