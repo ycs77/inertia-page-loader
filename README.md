@@ -248,7 +248,8 @@ export interface Options {
 ## Credits
 
 * [unplugin](https://github.com/unjs/unplugin)
-* [Laravel Vite](https://github.com/innocenzi/laravel-vite)
+* [Laravel](https://laravel.com/)
+* [Laravel Vite](https://laravel-vite.dev/)
 
 ## License
 
