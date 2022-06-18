@@ -196,6 +196,14 @@ If you created is composer package, must be added the `extra.inertia` field to d
 }
 ```
 
+## TypeScript
+
+Add to `env.d.ts`:
+
+```ts
+/// <reference types="inertia-plugin/client" />
+```
+
 ## Options
 
 ```ts
