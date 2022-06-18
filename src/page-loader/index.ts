@@ -12,7 +12,7 @@ export function resolvePage(resolver, transformPage) {
     if (!page) {
       page = ${
         meta.framework === 'vite'
-          ? 'resolveVitePage(name, await resolver(name))'
+          ? 'await resolveVitePage(name, await resolver(name))'
           : 'await resolver(name)'
       }
     }
