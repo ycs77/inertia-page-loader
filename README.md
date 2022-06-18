@@ -7,7 +7,7 @@ The plugin page loader for Inertia.js
 ## Install
 
 ```bash
-npm i inertia-plugin
+npm i inertia-plugin -D
 ```
 
 <details>
