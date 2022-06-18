@@ -239,4 +239,4 @@ If you created is composer package, must be added the `extra.inertia` field to d
 
 ## License
 
-[MIT LICENSE](LICENSE.md)
+[MIT LICENSE](LICENSE)
