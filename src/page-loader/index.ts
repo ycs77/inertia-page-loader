@@ -10,7 +10,11 @@ export function resolvePage(resolver, transformPage) {
   return async name => {
     let page = await resolvePluginPage(name)
     if (!page) {
-      page = await resolver(name)
+      page = ${
+        meta.framework === 'vite'
+          ? 'resolveVitePage(name, await resolver(name))'
+          : 'await resolver(name)'
+      }
     }
     page = page.default || page
     if (transformPage) {
