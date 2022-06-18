@@ -18,7 +18,7 @@ export function resolvePage(resolver, transformPage) {
     }
     page = page.default || page
     if (transformPage) {
-      page = transformPage(page)
+      page = transformPage(page, name)
     }
     return page
   }
