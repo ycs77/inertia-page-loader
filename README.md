@@ -232,6 +232,7 @@ If you created is composer package, must be added the `extra.inertia` field to d
 
 ## Credits
 
+* [inertia-laravel#92](https://github.com/inertiajs/inertia-laravel/issues/92)
 * [unplugin](https://github.com/unjs/unplugin)
 * [Laravel](https://laravel.com/)
 * [Laravel Vite](https://laravel-vite.dev/)
