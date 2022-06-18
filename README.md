@@ -61,6 +61,40 @@ mix
 
 <br></details>
 
+### Type
+
+Add to `env.d.ts`:
+
+```ts
+/// <reference types="inertia-plugin/client" />
+```
+
+## Configuration
+
+```js
+Inertia({
+  // Current work directory
+  cwd: process.cwd(),
+
+  // Define namespace mapping
+  namespaces: [],
+
+  // Namespace separator
+  separator: '::',
+
+  // Module extension
+  // (Defaults to '.vue' if not set and used with vite)
+  extension: '',
+
+  // Use `import()` to load pages for webpack, default is using `require()`
+  // Only for webpack
+  import: false,
+
+  // Enable SSR mode
+  ssr: false,
+})
+```
+
 ## Usage with Vite
 
 Add `inertia-plugin` to `vite.config.js`:
@@ -107,7 +141,7 @@ createInertiaApp({
 })
 ```
 
-## Laravel Mix
+## Usage with Laravel Mix
 
 Add `inertia-plugin` to `webpack.mix.js`:
 
@@ -193,63 +227,6 @@ If you created is composer package, must be added the `extra.inertia` field to d
             "MyPhpPackage": "resources/js/Pages"
         }
     }
-}
-```
-
-## TypeScript
-
-Add to `env.d.ts`:
-
-```ts
-/// <reference types="inertia-plugin/client" />
-```
-
-## Options
-
-```ts
-export interface Options {
-  /**
-   * Current work directory.
-   *
-   * Default: process.cwd()
-   */
-  cwd?: string
-
-  /**
-   * Define namespace mapping.
-   *
-   * Default: []
-   */
-  namespaces?: Namespaces
-
-  /**
-   * Namespace separator.
-   *
-   * Default: '::'
-   */
-  separator?: string
-
-  /**
-   * Module extension.
-   *
-   * Default: '' (Defaults to '.vue' if not set and used with vite.)
-   */
-  extension?: string
-
-  /**
-   * Use `import()` to load pages for webpack, default is using `require()`.
-   * Only for webpack.
-   *
-   * Default: false
-   */
-  import?: boolean
-
-  /**
-   * Enable SSR mode.
-   *
-   * Default: false
-   */
-  ssr?: boolean
 }
 ```
 
