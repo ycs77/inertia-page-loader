@@ -117,11 +117,11 @@ export default defineConfig({
 And use `resolvePage()` in `resources/js/app.js` to resolve the app pages and namespaced pages:
 
 ```js
-import { resolvePage, resolvePageWithVite } from '~inertia'
+import { resolvePage, resolveVitePage } from '~inertia'
 
 createInertiaApp({
   resolve: resolvePage(name => {
-    return resolvePageWithVite(name, import.meta.glob('./pages/**/*.vue'))
+    return resolveVitePage(name, import.meta.glob('./pages/**/*.vue'))
   }),
 })
 ```
@@ -133,7 +133,7 @@ import Layout from './Layout'
 
 createInertiaApp({
   resolve: resolvePage(name => {
-    return resolvePageWithVite(name, import.meta.glob('./pages/**/*.vue'))
+    return resolveVitePage(name, import.meta.glob('./pages/**/*.vue'))
   }, page => {
     page.layout = Layout
     return page

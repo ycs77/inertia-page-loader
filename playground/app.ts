@@ -1,6 +1,6 @@
 import { createApp, h } from 'vue'
 import { App, plugin } from '@inertiajs/inertia-vue3'
-import { resolvePage, resolvePageWithVite } from '~inertia'
+import { resolvePage, resolveVitePage } from '~inertia'
 
 createApp({
   mounted() {
@@ -19,7 +19,7 @@ createApp({
       version: '',
     },
     resolveComponent: resolvePage((name: string) => {
-      return resolvePageWithVite(name, import.meta.glob('./pages/**/*.vue'))
+      return resolveVitePage(name, import.meta.glob('./pages/**/*.vue'))
     }),
   }),
 })

@@ -12,7 +12,7 @@ export function generateNamespacesCode(options: ResolvedOptions, meta: UnpluginC
     let code = `\n        '${namespace}': [`
     if (meta.framework === 'vite') {
       modules.forEach(moduleDir => {
-        code += `\n          () => resolvePageWithVite(page, import.meta.${!options.ssr ? 'glob' : 'globEager'}('/${moduleDir}/**/*${options.extension}'), false),`
+        code += `\n          () => resolveVitePage(page, import.meta.${!options.ssr ? 'glob' : 'globEager'}('/${moduleDir}/**/*${options.extension}'), false),`
       })
     } else if (meta.framework === 'webpack') {
       modules.forEach(moduleDir => {

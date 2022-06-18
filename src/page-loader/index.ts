@@ -37,7 +37,7 @@ export async function resolvePluginPage(name) {
   }
 }
 
-export async function resolvePageWithVite(name, pages, throwNotFoundError = true) {
+export async function resolveVitePage(name, pages, throwNotFoundError = true) {
   for (const path in pages) {
     if (path.endsWith(\`\${name.replace('.', '/')}${options.extension}\`)) {
       const module = typeof pages[path] === 'function'
