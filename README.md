@@ -2,6 +2,8 @@
 
 [![NPM version](https://img.shields.io/npm/v/inertia-plugin?style=flat-square)](https://www.npmjs.com/package/inertia-plugin)
 
+> **Warning**: This plugin status is experimental, don't use it for the production application.
+
 The plugin page loader for Inertia.js
 
 ## Install
