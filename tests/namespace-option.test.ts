@@ -12,7 +12,7 @@ describe('namespace option', () => {
 
     expect(namespace).toMatchInlineSnapshot(`
 {
-  "MyPackage2": "test_node_modules/my-plugin2/src/other-pages",
+  "my-package-2": "test_node_modules/my-plugin2/src/other-pages",
 }
 `)
   })
@@ -23,7 +23,7 @@ describe('namespace option', () => {
 
     expect(namespace).toMatchInlineSnapshot(`
 {
-  "MyPhpPackage": "test_vendor/ycs77/my-php-package/resources/js/Pages",
+  "my-php-package": "test_vendor/ycs77/my-php-package/resources/js/Pages",
 }
 `)
   })

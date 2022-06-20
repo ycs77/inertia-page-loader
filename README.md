@@ -106,8 +106,8 @@ export default defineConfig({
   plugins: [
     Inertia({
       namespaces: [
-        { MyPackage1: 'node_modules/my-plugin1/src/Pages' },
-        { MyPackage2: 'node_modules/my-plugin2/src/Pages' },
+        { 'my-package-1': 'node_modules/my-plugin1/src/Pages' },
+        { 'my-package-2': 'node_modules/my-plugin2/src/Pages' },
       ],
     }),
   ],
@@ -151,8 +151,8 @@ mix
     plugins: [
       inertiaPlugin({
         namespaces: ({ npm, composer }) => [
-          { MyPackage1: 'node_modules/my-plugin1/src/Pages' },
-          { MyPackage2: 'node_modules/my-plugin2/src/Pages' },
+          { 'my-package-1': 'node_modules/my-plugin1/src/Pages' },
+          { 'my-package-2': 'node_modules/my-plugin2/src/Pages' },
         ],
       }),
     ],
@@ -192,8 +192,8 @@ export default defineConfig({
     Inertia({
       namespaces: ({ npm, composer }) => [
         // define namespace mapping:
-        { MyPackage1: 'node_modules/my-plugin1/src/Pages' },
-        { MyPackage2: 'node_modules/my-plugin2/src/Pages' },
+        { 'my-package-1': 'node_modules/my-plugin1/src/Pages' },
+        { 'my-package-2': 'node_modules/my-plugin2/src/Pages' },
 
         // load namespace from npm package:
         npm('my-plugin2'),
@@ -212,7 +212,7 @@ If you created is npm package, must be added the `inertia` field to define the n
 {
   "name": "my-plugin2",
   "inertia": {
-    "MyPackage2": "src/other-pages"
+    "my-package-2": "src/other-pages"
   }
 }
 ```
@@ -224,7 +224,7 @@ If you created is composer package, must be added the `extra.inertia` field to d
     "name": "ycs77/my-php-package",
     "extra": {
         "inertia": {
-            "MyPhpPackage": "resources/js/Pages"
+            "my-php-package": "resources/js/Pages"
         }
     }
 }

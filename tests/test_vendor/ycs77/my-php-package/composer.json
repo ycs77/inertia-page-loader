@@ -2,7 +2,7 @@
     "name": "ycs77/my-php-package",
     "extra": {
         "inertia": {
-            "MyPhpPackage": "resources/js/Pages"
+            "my-php-package": "resources/js/Pages"
         }
     }
 }

@@ -11,9 +11,9 @@ createApp({
     initialPage: {
       component: 'Page1',
       // component: 'Page2',
-      // component: 'MyPackage1::Page3',
-      // component: 'MyPackage2::Page222',
-      // component: 'MyPhpPackage::PhpPackagePage',
+      // component: 'my-package-1::Page3',
+      // component: 'my-package-2::Page222',
+      // component: 'my-php-package::PhpPackagePage',
       props: {},
       url: '/',
       version: '',

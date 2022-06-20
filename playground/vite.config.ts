@@ -9,7 +9,7 @@ export default defineConfig({
     Vue(),
     Inertia({
       namespaces: ({ npm, composer }) => [
-        { MyPackage1: 'test_node_modules/my-plugin1/src/Pages' },
+        { 'my-package-1': 'test_node_modules/my-plugin1/src/Pages' },
         npm('my-plugin2', 'test_node_modules'),
         composer('ycs77/my-php-package', 'test_vendor'),
       ],

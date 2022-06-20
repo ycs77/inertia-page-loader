@@ -2,13 +2,13 @@
 
 exports[`generate namespaces > namespaces with vite 1`] = `
 "{
-        'MyPackage1': [
+        'my-package-1': [
           () => resolveVitePage(page, import.meta.glob('/test_node_modules/my-plugin1/src/Pages/**/*.vue'), false),
         ],
-        'MyPackage2': [
+        'my-package-2': [
           () => resolveVitePage(page, import.meta.glob('/test_node_modules/my-plugin2/src/other-pages/**/*.vue'), false),
         ],
-        'MyPhpPackage': [
+        'my-php-package': [
           () => resolveVitePage(page, import.meta.glob('/test_vendor/ycs77/my-php-package/resources/js/Pages/**/*.vue'), false),
         ],
       }"
@@ -16,13 +16,13 @@ exports[`generate namespaces > namespaces with vite 1`] = `
 
 exports[`generate namespaces > namespaces with webpack 1`] = `
 "{
-        'MyPackage1': [
+        'my-package-1': [
           () => require(\`../test_node_modules/my-plugin1/src/Pages/\${page}\`),
         ],
-        'MyPackage2': [
+        'my-package-2': [
           () => require(\`../test_node_modules/my-plugin2/src/other-pages/\${page}\`),
         ],
-        'MyPhpPackage': [
+        'my-php-package': [
           () => require(\`../test_vendor/ycs77/my-php-package/resources/js/Pages/\${page}\`),
         ],
       }"
@@ -35,13 +35,13 @@ exports[`generate namespaces > simple options 1`] = `
 
 exports[`generate namespaces > vite with ssr 1`] = `
 "{
-        'MyPackage1': [
+        'my-package-1': [
           () => resolveVitePage(page, import.meta.globEager('/test_node_modules/my-plugin1/src/Pages/**/*.vue'), false),
         ],
-        'MyPackage2': [
+        'my-package-2': [
           () => resolveVitePage(page, import.meta.globEager('/test_node_modules/my-plugin2/src/other-pages/**/*.vue'), false),
         ],
-        'MyPhpPackage': [
+        'my-php-package': [
           () => resolveVitePage(page, import.meta.globEager('/test_vendor/ycs77/my-php-package/resources/js/Pages/**/*.vue'), false),
         ],
       }"
@@ -49,13 +49,13 @@ exports[`generate namespaces > vite with ssr 1`] = `
 
 exports[`generate namespaces > webpack with import 1`] = `
 "{
-        'MyPackage1': [
+        'my-package-1': [
           () => import(\`../test_node_modules/my-plugin1/src/Pages/\${page}\`),
         ],
-        'MyPackage2': [
+        'my-package-2': [
           () => import(\`../test_node_modules/my-plugin2/src/other-pages/\${page}\`),
         ],
-        'MyPhpPackage': [
+        'my-php-package': [
           () => import(\`../test_vendor/ycs77/my-php-package/resources/js/Pages/\${page}\`),
         ],
       }"
