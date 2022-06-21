@@ -1,5 +1,5 @@
 import { type UnpluginContextMeta, createUnplugin } from 'unplugin'
-import { pageLoader } from './page-loader'
+import { pageLoader } from './page'
 import type { Options, ResolvedOptions } from './types'
 
 const ids = [

@@ -1,6 +1,6 @@
 import path from 'path'
 import { describe, expect, it } from 'vitest'
-import { generateNamespacesCode } from '../src/page-loader/generate-namespaces'
+import { generateNamespacesCode } from '../src/page/generate-namespaces'
 import type { Namespaces, ResolvedOptions } from '../src/types'
 
 describe('generate namespaces', () => {

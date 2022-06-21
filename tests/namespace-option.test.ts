@@ -1,7 +1,7 @@
 import path from 'path'
 import { normalizePath } from 'vite'
 import { describe, expect, it } from 'vitest'
-import { createComposer, createNpm } from '../src/page-loader/namespace-option'
+import { createComposer, createNpm } from '../src/page/namespace-option'
 
 describe('namespace option', () => {
   const cwd = normalizePath(path.resolve(process.cwd(), 'tests'))
