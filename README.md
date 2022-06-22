@@ -6,7 +6,7 @@
 
 > **Warning**: This plugin status is experimental, don't use it for the production application.
 
-The plugin page loader for Inertia.js
+The plugin page loader for Inertia.js, that allows the server-side to use `Inertia::render('my-package::Page');`.
 
 ## Install
 
