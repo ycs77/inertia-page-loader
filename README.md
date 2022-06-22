@@ -1,6 +1,8 @@
 # Inertia Plugin
 
-[![NPM version](https://img.shields.io/npm/v/inertia-plugin?style=flat-square)](https://www.npmjs.com/package/inertia-plugin)
+[![NPM version][ico-version]][link-npm]
+[![Software License][ico-license]](LICENSE)
+[![Total Downloads][ico-downloads]][link-downloads]
 
 > **Warning**: This plugin status is experimental, don't use it for the production application.
 
@@ -242,3 +244,10 @@ If you created is composer package, must be added the `extra.inertia` field to d
 ## License
 
 [MIT LICENSE](LICENSE)
+
+[ico-version]: https://img.shields.io/npm/v/inertia-plugin?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square
+[ico-downloads]: https://img.shields.io/npm/dt/inertia-plugin?style=flat-square
+
+[link-npm]: https://www.npmjs.com/package/inertia-plugin
+[link-downloads]: https://www.npmjs.com/package/inertia-plugin
