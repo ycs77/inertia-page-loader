@@ -8,6 +8,13 @@
 
 The plugin page loader for Inertia.js, that allows the server-side to use `Inertia::render('my-package::Page');`.
 
+## Features
+
+* Powered by [unplugin](https://github.com/unjs/unplugin)
+* Supports [Vite](https://vitejs.dev/) and [Laravel Mix](https://laravel-mix.com/)
+* Define the namespace mapping for plugins **pages** directory
+* Or extract namespace from the **npm** / **composer** package
+
 ## Install
 
 ```bash
