@@ -5,13 +5,13 @@
   "description": "The plugin page loader for Inertia.js",
   "author": "Lucas Yang <yangchenshin77@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/antfu/inertia-plugin#readme",
+  "homepage": "https://github.com/ycs77/inertia-plugin#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antfu/inertia-plugin.git"
+    "url": "git+https://github.com/ycs77/inertia-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/antfu/inertia-plugin/issues"
+    "url": "https://github.com/ycs77/inertia-plugin/issues"
   },
   "keywords": [
     "unplugin",
