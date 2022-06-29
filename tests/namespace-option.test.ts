@@ -1,10 +1,9 @@
 import path from 'path'
-import { normalizePath } from 'vite'
 import { describe, expect, it } from 'vitest'
 import { createComposer, createNpm } from '../src/page/namespace-option'
 
 describe('namespace option', () => {
-  const cwd = normalizePath(path.resolve(process.cwd(), 'tests'))
+  const cwd = path.resolve(process.cwd(), 'tests').replaceAll('\\', '/')
 
   it('resolve NPM namespace', () => {
     const npm = createNpm(cwd)
