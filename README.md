@@ -42,7 +42,7 @@ export default defineConfig({
 
 ```ts
 // webpack.config.js
-const inertiaPlugin = require('inertia-plugin/webpack').default
+const inertiaPlugin = require('inertia-plugin/webpack')
 
 module.exports = {
   /* ... */
@@ -59,7 +59,7 @@ module.exports = {
 
 ```ts
 // webpack.mix.js
-const inertiaPlugin = require('inertia-plugin/webpack').default
+const inertiaPlugin = require('inertia-plugin/webpack')
 
 mix
   .webpackConfig({
