@@ -3,13 +3,13 @@
 exports[`generate namespaces > namespaces with vite 1`] = `
 "{
         'my-package-1': [
-          () => resolveVitePage(page, import.meta.glob('/test_node_modules/my-plugin1/src/Pages/**/*.vue'), false),
+          name => resolveVitePage(name, import.meta.glob('/test_node_modules/my-plugin1/src/Pages/**/*.vue'), false),
         ],
         'my-package-2': [
-          () => resolveVitePage(page, import.meta.glob('/test_node_modules/my-plugin2/src/other-pages/**/*.vue'), false),
+          name => resolveVitePage(name, import.meta.glob('/test_node_modules/my-plugin2/src/other-pages/**/*.vue'), false),
         ],
         'my-php-package': [
-          () => resolveVitePage(page, import.meta.glob('/test_vendor/ycs77/my-php-package/resources/js/Pages/**/*.vue'), false),
+          name => resolveVitePage(name, import.meta.glob('/test_vendor/ycs77/my-php-package/resources/js/Pages/**/*.vue'), false),
         ],
       }"
 `;
@@ -17,13 +17,13 @@ exports[`generate namespaces > namespaces with vite 1`] = `
 exports[`generate namespaces > namespaces with webpack 1`] = `
 "{
         'my-package-1': [
-          () => require(\`../test_node_modules/my-plugin1/src/Pages/\${page}\`),
+          name => require(\`../test_node_modules/my-plugin1/src/Pages/\${name}\`),
         ],
         'my-package-2': [
-          () => require(\`../test_node_modules/my-plugin2/src/other-pages/\${page}\`),
+          name => require(\`../test_node_modules/my-plugin2/src/other-pages/\${name}\`),
         ],
         'my-php-package': [
-          () => require(\`../test_vendor/ycs77/my-php-package/resources/js/Pages/\${page}\`),
+          name => require(\`../test_vendor/ycs77/my-php-package/resources/js/Pages/\${name}\`),
         ],
       }"
 `;
@@ -36,13 +36,13 @@ exports[`generate namespaces > simple options 1`] = `
 exports[`generate namespaces > vite with ssr 1`] = `
 "{
         'my-package-1': [
-          () => resolveVitePage(page, import.meta.globEager('/test_node_modules/my-plugin1/src/Pages/**/*.vue'), false),
+          name => resolveVitePage(name, import.meta.globEager('/test_node_modules/my-plugin1/src/Pages/**/*.vue'), false),
         ],
         'my-package-2': [
-          () => resolveVitePage(page, import.meta.globEager('/test_node_modules/my-plugin2/src/other-pages/**/*.vue'), false),
+          name => resolveVitePage(name, import.meta.globEager('/test_node_modules/my-plugin2/src/other-pages/**/*.vue'), false),
         ],
         'my-php-package': [
-          () => resolveVitePage(page, import.meta.globEager('/test_vendor/ycs77/my-php-package/resources/js/Pages/**/*.vue'), false),
+          name => resolveVitePage(name, import.meta.globEager('/test_vendor/ycs77/my-php-package/resources/js/Pages/**/*.vue'), false),
         ],
       }"
 `;
@@ -50,13 +50,13 @@ exports[`generate namespaces > vite with ssr 1`] = `
 exports[`generate namespaces > webpack with import 1`] = `
 "{
         'my-package-1': [
-          () => import(\`../test_node_modules/my-plugin1/src/Pages/\${page}\`),
+          name => import(\`../test_node_modules/my-plugin1/src/Pages/\${name}\`),
         ],
         'my-package-2': [
-          () => import(\`../test_node_modules/my-plugin2/src/other-pages/\${page}\`),
+          name => import(\`../test_node_modules/my-plugin2/src/other-pages/\${name}\`),
         ],
         'my-php-package': [
-          () => import(\`../test_vendor/ycs77/my-php-package/resources/js/Pages/\${page}\`),
+          name => import(\`../test_vendor/ycs77/my-php-package/resources/js/Pages/\${name}\`),
         ],
       }"
 `;

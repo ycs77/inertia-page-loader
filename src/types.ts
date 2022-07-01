@@ -1,3 +1,8 @@
+declare global {
+  // eslint-disable-next-line vars-on-top, no-var
+  var InertiaPlugin: InstanceType<typeof import('./runtime/plugin')['default']>
+}
+
 export interface Options {
   /**
    * Current work directory.
@@ -45,11 +50,12 @@ export interface Options {
 
 export type ResolvedOptions = Required<Options>
 
+export type PageResolver<T = any> = (name: string) => T | Promise<T>
+
 export type Namespace = Record<string, string | string[]>
 export type ResolvedNamespace = Record<string, string[]>
-export type NamespacesAry = Namespace[]
 export interface NamespacesArgs {
   npm(pkg: string, dir: string): Namespace
   composer(pkg: string, dir: string): Namespace
 }
-export type Namespaces = NamespacesAry | ((args: NamespacesArgs) => NamespacesAry)
+export type Namespaces = Namespace[] | ((args: NamespacesArgs) => Namespace[])
