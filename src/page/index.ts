@@ -12,8 +12,8 @@ export function resolvePage(resolver, transformPage) {
     if (!page) {
       page = ${
         meta.framework === 'vite'
-          ? 'await resolveVitePage(name, await resolver(name))'
-          : 'await resolver(name)'
+          ? 'await resolveVitePage(name, await resolver(name.replace(\'.\', \'/\')))'
+          : 'await resolver(name.replace(\'.\', \'/\'))'
       }
     }
     page = page.default || page
@@ -27,14 +27,27 @@ export function resolvePage(resolver, transformPage) {
 export async function resolvePluginPage(name) {
   if (name.includes('${options.separator}')) {
     const [namespace, page] = name.split('${options.separator}')
+    const meta = { framework: '${meta.framework}' }
+
     if (namespace && page) {
       const namespaces = ${namespacesCode}
+
+      /* Load namespaces on runtime from window global variable. */
+      if (window.InertiaPlugin) {
+        for (const namespaceGroup of window.InertiaPlugin.namespaces) {
+          for (const namespace in namespaceGroup) {
+            namespaces[namespace] = (namespaces[namespace] || []).concat(namespaceGroup[namespace])
+          }
+        }
+      }
+
       if (!namespaces[namespace]) {
         throw new Error(\`[inertia-plugin]: Namespace "\${namespace}" not found\`)
       }
+
       for (const importedNamespace of namespaces[namespace]) {
         if (importedNamespace && typeof importedNamespace === 'function') {
-          return importedNamespace()
+          return await importedNamespace(page, meta)
         }
       }
     }

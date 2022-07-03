@@ -1,5 +1,5 @@
 declare module '~inertia' {
-  export function resolvePage<T = any>(resolver: (name: string) => any, transformPage?: (page: T, name: string) => T): (name: string) => any
-  export function resolvePluginPage<T = any>(name: string): Promise<T>
-  export function resolveVitePage<T = any>(name: string, pages: Record<string, any>, throwNotFoundError?: boolean): T
+  function resolvePage<T = any>(resolver: (name: string) => any | Promise<any>, transformPage?: (page: T, name: string) => T): (name: string) => any
+  function resolvePluginPage<T = any>(name: string): Promise<T>
+  function resolveVitePage<T = any>(name: string, pages: Record<string, any>, throwNotFoundError?: boolean): T
 }
