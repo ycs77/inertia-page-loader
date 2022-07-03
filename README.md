@@ -351,7 +351,7 @@ Now you can publish this package and install it in the Inertia app, publish asse
 
 ```html
 <head>
-  <script src="https://unpkg.com/inertia-plugin@^0.4" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/inertia-plugin@0.4.0/dist/runtime.iife.js" integrity="sha384-tJTioWKPMG4lXfJv73Dz+tR2bUf+SBezs3pDXEXfF7i4HYBJ0mjbCPIBVpz82IE5" crossorigin="anonymous"></script>
   <script src="/vendor/my-runtime-pluin/js/my-runtime-pluin.js" defer></script>
   <!-- app.js must be last one -->
   <script src="{{ mix('/js/app.js') }}" defer></script>
