@@ -347,12 +347,12 @@ mix
   .disableNotifications()
 ```
 
-Now you can publish this package and install it in the Inertia app, publish assets (`my-runtime-pluin.js`) to `public/vendor`, and open `app.blade.php` to include scripts to load pages:
+Now you can publish this package and install it in the Inertia app, publish assets (`my-runtime-pluin.js`) to `public/vendor/inertia-plugins`, and open `app.blade.php` to include scripts to load pages:
 
 ```html
 <head>
   <script src="https://cdn.jsdelivr.net/npm/inertia-plugin@0.4.0/dist/runtime.iife.js" integrity="sha384-tJTioWKPMG4lXfJv73Dz+tR2bUf+SBezs3pDXEXfF7i4HYBJ0mjbCPIBVpz82IE5" crossorigin="anonymous"></script>
-  <script src="/vendor/my-runtime-pluin/js/my-runtime-pluin.js" defer></script>
+  <script src="/vendor/inertia-plugins/my-runtime-pluin.js" defer></script>
   <!-- app.js must be last one -->
   <script src="{{ mix('/js/app.js') }}" defer></script>
 </head>
