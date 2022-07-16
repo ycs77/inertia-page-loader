@@ -3,9 +3,11 @@ import type { ResolvedOptions } from '../types'
 import { generateNamespacesCode } from './generate-namespaces'
 
 export function pageLoader(options: ResolvedOptions, meta: UnpluginContextMeta) {
-  const namespacesCode = generateNamespacesCode(options, meta)
+  const { namespacesCode, importsCode } = generateNamespacesCode(options, meta)
 
   return `
+${importsCode}
+
 export function resolvePage(resolver, transformPage) {
   return async name => {
     let page = await resolvePluginPage(name)
@@ -56,7 +58,7 @@ export async function resolvePluginPage(name) {
 
 export async function resolveVitePage(name, pages, throwNotFoundError = true) {
   for (const path in pages) {
-    if (path.endsWith(\`\${name.replace('.', '/')}${options.extension}\`)) {
+    if (${JSON.stringify(options.extensions)}.some(ext => path.endsWith(\`\${name.replaceAll('.', '/')}.\${ext}\`))) {
       const module = typeof pages[path] === 'function'
         ? pages[path]()
         : pages[path]

@@ -5,10 +5,10 @@ import type { Namespaces, ResolvedOptions } from '../src/types'
 
 describe('generate namespaces', () => {
   const baseOptions = <ResolvedOptions>{
-    cwd: path.resolve(process.cwd(), 'tests'),
+    cwd: path.join(process.cwd(), 'tests'),
     namespaces: [],
     separator: '::',
-    extension: '.vue',
+    extensions: ['vue'],
     import: false,
     ssr: false,
   }
@@ -20,9 +20,13 @@ describe('generate namespaces', () => {
   ]
 
   it('simple options', () => {
-    const namespacesCode = generateNamespacesCode(baseOptions, { framework: 'vite' })
+    const code = generateNamespacesCode(baseOptions, { framework: 'vite' })
 
-    expect(namespacesCode).toMatchSnapshot()
+    expect(code.importsCode).toMatchInlineSnapshot('""')
+    expect(code.namespacesCode).toMatchInlineSnapshot(`
+      "{
+            }"
+    `)
   })
 
   it('namespaces with vite', () => {
@@ -31,9 +35,29 @@ describe('generate namespaces', () => {
       namespaces,
     }
 
-    const namespacesCode = generateNamespacesCode(options, { framework: 'vite' })
+    const code = generateNamespacesCode(options, { framework: 'vite' })
 
-    expect(namespacesCode).toMatchSnapshot()
+    expect(code.importsCode).toMatchInlineSnapshot('""')
+    expect(code.namespacesCode).toMatchInlineSnapshot(`
+      "{
+              'my-package-1': [
+                name => resolveVitePage(name, {
+                  \\"/test_node_modules/my-plugin1/src/Pages/Page3.vue\\": () => import(\\"/test_node_modules/my-plugin1/src/Pages/Page3.vue\\"),
+                }, false),
+              ],
+              'my-package-2': [
+                name => resolveVitePage(name, {
+                  \\"/test_node_modules/my-plugin2/src/other-pages/Page222.vue\\": () => import(\\"/test_node_modules/my-plugin2/src/other-pages/Page222.vue\\"),
+                  \\"/test_node_modules/my-plugin2/src/other-pages/Page223.vue\\": () => import(\\"/test_node_modules/my-plugin2/src/other-pages/Page223.vue\\"),
+                }, false),
+              ],
+              'my-php-package': [
+                name => resolveVitePage(name, {
+                  \\"/test_vendor/ycs77/my-php-package/resources/js/Pages/PhpPackagePage.vue\\": () => import(\\"/test_vendor/ycs77/my-php-package/resources/js/Pages/PhpPackagePage.vue\\"),
+                }, false),
+              ],
+            }"
+    `)
   })
 
   it('vite with ssr', () => {
@@ -43,33 +67,84 @@ describe('generate namespaces', () => {
       ssr: true,
     }
 
-    const namespacesCode = generateNamespacesCode(options, { framework: 'vite' })
+    const code = generateNamespacesCode(options, { framework: 'vite' })
 
-    expect(namespacesCode).toMatchSnapshot()
+    expect(code.importsCode).toMatchInlineSnapshot(`
+      "import __import_page_0__ from '/test_node_modules/my-plugin1/src/Pages/Page3.vue'
+      import __import_page_1__ from '/test_node_modules/my-plugin2/src/other-pages/Page222.vue'
+      import __import_page_2__ from '/test_node_modules/my-plugin2/src/other-pages/Page223.vue'
+      import __import_page_3__ from '/test_vendor/ycs77/my-php-package/resources/js/Pages/PhpPackagePage.vue'"
+    `)
+    expect(code.namespacesCode).toMatchInlineSnapshot(`
+      "{
+              'my-package-1': [
+                name => resolveVitePage(name, {
+                  \\"/test_node_modules/my-plugin1/src/Pages/Page3.vue\\": () => import(__import_page_0__),
+                }, false),
+              ],
+              'my-package-2': [
+                name => resolveVitePage(name, {
+                  \\"/test_node_modules/my-plugin2/src/other-pages/Page222.vue\\": () => import(__import_page_1__),
+                  \\"/test_node_modules/my-plugin2/src/other-pages/Page223.vue\\": () => import(__import_page_2__),
+                }, false),
+              ],
+              'my-php-package': [
+                name => resolveVitePage(name, {
+                  \\"/test_vendor/ycs77/my-php-package/resources/js/Pages/PhpPackagePage.vue\\": () => import(__import_page_3__),
+                }, false),
+              ],
+            }"
+    `)
   })
 
   it('namespaces with webpack', () => {
     const options = <ResolvedOptions>{
       ...baseOptions,
       namespaces,
-      extension: '',
+      extensions: [''],
     }
 
-    const namespacesCode = generateNamespacesCode(options, { framework: 'webpack' })
+    const code = generateNamespacesCode(options, { framework: 'webpack' })
 
-    expect(namespacesCode).toMatchSnapshot()
+    expect(code.importsCode).toMatchInlineSnapshot('""')
+    expect(code.namespacesCode).toMatchInlineSnapshot(`
+      "{
+              'my-package-1': [
+                name => require(\`../test_node_modules/my-plugin1/src/Pages/\${name}\`),
+              ],
+              'my-package-2': [
+                name => require(\`../test_node_modules/my-plugin2/src/other-pages/\${name}\`),
+              ],
+              'my-php-package': [
+                name => require(\`../test_vendor/ycs77/my-php-package/resources/js/Pages/\${name}\`),
+              ],
+            }"
+    `)
   })
 
   it('webpack with import', () => {
     const options = <ResolvedOptions>{
       ...baseOptions,
       namespaces,
-      extension: '',
+      extensions: [''],
       import: true,
     }
 
-    const namespacesCode = generateNamespacesCode(options, { framework: 'webpack' })
+    const code = generateNamespacesCode(options, { framework: 'webpack' })
 
-    expect(namespacesCode).toMatchSnapshot()
+    expect(code.importsCode).toMatchInlineSnapshot('""')
+    expect(code.namespacesCode).toMatchInlineSnapshot(`
+      "{
+              'my-package-1': [
+                name => import(\`../test_node_modules/my-plugin1/src/Pages/\${name}\`),
+              ],
+              'my-package-2': [
+                name => import(\`../test_node_modules/my-plugin2/src/other-pages/\${name}\`),
+              ],
+              'my-php-package': [
+                name => import(\`../test_vendor/ycs77/my-php-package/resources/js/Pages/\${name}\`),
+              ],
+            }"
+    `)
   })
 })

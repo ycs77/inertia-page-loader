@@ -13,6 +13,7 @@ createApp({
       // component: 'Page2',
       // component: 'my-package-1::Page3',
       // component: 'my-package-2::Page222',
+      // component: 'my-package-2::Page223',
       // component: 'my-php-package::PhpPackagePage',
       props: {},
       url: '/',

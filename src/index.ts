@@ -8,13 +8,24 @@ const ids = [
 ]
 
 function resolveOptions(options: Options, meta: UnpluginContextMeta) {
+  if (options.extension) {
+    options.extensions = options.extensions ?? options.extension
+  }
+
+  let extensions = options.extensions
+  if (meta.framework === 'vite' && !extensions) {
+    extensions = 'vue'
+  } else if (meta.framework === 'webpack' && Array.isArray(extensions)) {
+    extensions = extensions[0]
+  }
+  extensions = (Array.isArray(extensions) ? extensions : [extensions ?? '']) as string[]
+  extensions = extensions.map(ext => ext.replace(/^\./, ''))
+
   return Object.assign({
     cwd: process.cwd(),
     namespaces: [],
     separator: '::',
-    extension: !options.extension && meta.framework === 'vite'
-      ? '.vue'
-      : options.extension || '',
+    extensions,
     import: false,
     ssr: false,
   }, options) as ResolvedOptions

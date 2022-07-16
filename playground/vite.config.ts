@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Inspect from 'vite-plugin-inspect'
-import Inertia from '../src/vite'
+import Inertia from 'inertia-plugin/vite'
 
 export default defineConfig({
   plugins: [

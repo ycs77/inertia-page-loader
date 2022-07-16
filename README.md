@@ -376,24 +376,26 @@ Inertia::render('MyRuntimePluin::Some');
 
 ```js
 Inertia({
-  // Current work directory
+  // Current work directory.
   cwd: process.cwd(),
 
-  // Define namespace mapping
+  // Define namespace mapping.
   namespaces: [],
 
-  // Namespace separator
+  // Namespace separator.
   separator: '::',
 
-  // Module extension
-  // (Defaults to '.vue' if not set and used with vite)
-  extension: '',
+  // Module extensions.
+  extensions: '',
+  // extensions: 'vue', // if use vite the defaults is 'vue'
+  // extensions: 'vue', // webpack example
+  // extensions: ['vue', 'js'], // vite example
 
-  // Use `import()` to load pages for webpack, default is using `require()`
-  // Only for webpack
+  // Use `import()` to load pages for webpack, default is using `require()`.
+  // Only for webpack.
   import: false,
 
-  // Enable SSR mode
+  // Enable SSR mode.
   ssr: false,
 })
 ```

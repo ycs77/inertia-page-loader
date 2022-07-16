@@ -1,4 +1,5 @@
 declare global {
+  // @ts-ignore
   // eslint-disable-next-line vars-on-top, no-var
   var InertiaPlugin: InstanceType<typeof import('./runtime/plugin')['default']>
 }
@@ -7,48 +8,74 @@ export interface Options {
   /**
    * Current work directory.
    *
-   * Default: process.cwd()
+   * @default process.cwd()
    */
   cwd?: string
 
   /**
    * Define namespace mapping.
    *
-   * Default: []
+   * @default []
    */
   namespaces?: Namespaces
 
   /**
    * Namespace separator.
    *
-   * Default: '::'
+   * @default '::'
    */
   separator?: string
 
   /**
-   * Module extension.
+   * Module extensions.
    *
-   * Default: '' (Defaults to '.vue' if not set and used with vite.)
+   * vite:
+   * @type {string|string[]}
+   * @default 'vue'
+   *
+   * webpack:
+   * @type {string}
+   * @default ''
    */
-  extension?: string
+  extensions?: string | string[]
+
+  /**
+   * Module extensions.
+   *
+   * vite:
+   * @type {string|string[]}
+   * @default 'vue'
+   *
+   * webpack:
+   * @type {string}
+   * @default ''
+   *
+   * @deprecated Use `extensions` instead
+   */
+  extension?: string | string[]
 
   /**
    * Use `import()` to load pages for webpack, default is using `require()`.
    * Only for webpack.
    *
-   * Default: false
+   * @default false
    */
   import?: boolean
 
   /**
    * Enable SSR mode.
    *
-   * Default: false
+   * @default false
    */
   ssr?: boolean
 }
 
-export type ResolvedOptions = Required<Options>
+export type ResolvedOptions = Required<Omit<Options, 'extensions' | 'extension'>> & {
+  /**
+   * Module extensions.
+   */
+  extensions: string[]
+}
 
 export type PageResolver<T = any> = (name: string) => T | Promise<T>
 
