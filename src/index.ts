@@ -25,10 +25,12 @@ function resolveOptions(options: Options, meta: UnpluginContextMeta) {
     cwd: process.cwd(),
     namespaces: [],
     separator: '::',
-    extensions,
+    extensions: [''],
     import: false,
     ssr: false,
-  }, options) as ResolvedOptions
+  }, options, {
+    extensions,
+  }) as ResolvedOptions
 }
 
 export default createUnplugin<Options>((userOptions, meta) => {
