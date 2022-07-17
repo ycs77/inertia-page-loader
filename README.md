@@ -121,7 +121,7 @@ And added the `inertia` field to define the namespace mapping, for example in `n
 {
   "name": "my-plugin",
   "inertia": {
-    "MyPackage": "src/pages"
+    "my-package": "src/pages"
   }
 }
 ```
@@ -156,7 +156,7 @@ And added the `extra.inertia` field to define the namespace mapping, for example
     "name": "ycs77/my-php-package",
     "extra": {
         "inertia": {
-            "MyPhpPackage": "resources/js/pages"
+            "my-php-package": "resources/js/pages"
         }
     }
 }
@@ -226,8 +226,8 @@ createInertiaApp({
 Now you can use the pages:
 
 ```php
-Inertia::render('MyPackage::Some'); // in npm package
-Inertia::render('MyPhpPackage::Some'); // in composer package
+Inertia::render('my-package::Some'); // in npm package
+Inertia::render('my-php-package::Some'); // in composer package
 ```
 
 ### Usage with Laravel Mix
@@ -277,8 +277,8 @@ createInertiaApp({
 Now you can use the pages:
 
 ```php
-Inertia::render('MyPackage::Some'); // in npm package
-Inertia::render('MyPhpPackage::Some'); // in composer package
+Inertia::render('my-package::Some'); // in npm package
+Inertia::render('my-php-package::Some'); // in composer package
 ```
 
 ### Load pages from Modules (in main app)
@@ -293,12 +293,12 @@ export default defineConfig({
     Inertia({
       namespaces: [
         // define namespace mapping:
-        { MyModule: 'Modules/MyModule/Resources/js/pages' },
+        { 'my-module': 'Modules/MyModule/Resources/js/pages' },
 
         // define more namespace mapping:
         {
-          MyModule2: 'Modules/MyModule2/Resources/js/pages',
-          SpecialModal: 'resources/js/SpecialModals',
+          'my-module-2': 'Modules/MyModule2/Resources/js/pages',
+          'special-modal': 'resources/js/SpecialModals',
         },
       ],
     }),
@@ -309,9 +309,9 @@ export default defineConfig({
 Now you can use the pages:
 
 ```php
-Inertia::render('MyModule::Some');
-Inertia::render('MyModule2::Some');
-Inertia::render('SpecialModal::VeryCoolModal');
+Inertia::render('my-module::Some');
+Inertia::render('my-module-2::Some');
+Inertia::render('special-modal::VeryCoolModal');
 ```
 
 ## Build for Runtime
