@@ -43,12 +43,12 @@ export default defineConfig({
 
 ```ts
 // webpack.config.js
-const inertiaPlugin = require('inertia-plugin/webpack')
+const InertiaPlugin = require('inertia-plugin/webpack')
 
 module.exports = {
   /* ... */
   plugins: [
-    inertiaPlugin({ /* options */ }),
+    InertiaPlugin({ /* options */ }),
   ],
 }
 ```
@@ -60,15 +60,14 @@ module.exports = {
 
 ```ts
 // webpack.mix.js
-const inertiaPlugin = require('inertia-plugin/webpack')
+const InertiaPlugin = require('inertia-plugin/webpack')
 
 mix
   .webpackConfig({
     plugins: [
-      inertiaPlugin({ /* options */ }),
+      InertiaPlugin({ /* options */ }),
     ],
   })
-
 ```
 
 <br></details>
@@ -359,11 +358,24 @@ Now you can publish this package and install it in the Inertia app, publish asse
 But the `app.js` must build with `inertia-plugin`, you can follow [Install](#install) chapter to install it (does not need to include any option), like this:
 
 ```js
+// vite.config.js
+import Inertia from 'inertia-plugin/vite'
+
 export default defineConfig({
   plugins: [
     Inertia(),
   ],
 })
+
+// webpack.mix.js
+const InertiaPlugin = require('inertia-plugin/webpack')
+
+mix
+  .webpackConfig({
+    plugins: [
+      InertiaPlugin(),
+    ],
+  })
 ```
 
 Over, using pages:
