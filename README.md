@@ -328,7 +328,7 @@ resources/js/
 Use the **InertiaPlugin** runtime API in `resources/js/my-runtime-pluin.js` to load pages:
 
 ```js
-window.InertiaPlugin.addNamespace('MyRuntimePluin', name => require(`./Pages/${name}`))
+window.InertiaPlugin.addNamespace('my-runtime', name => require(`./Pages/${name}`))
 ```
 
 And setting `webpack.mix.js` to build assets:
@@ -366,7 +366,11 @@ export default defineConfig({
     Inertia(),
   ],
 })
+```
 
+Or using in Laravel Mix:
+
+```js
 // webpack.mix.js
 const InertiaPlugin = require('inertia-plugin/webpack')
 
@@ -381,7 +385,7 @@ mix
 Over, using pages:
 
 ```php
-Inertia::render('MyRuntimePluin::Some');
+Inertia::render('my-runtime::Some');
 ```
 
 ## Configuration
