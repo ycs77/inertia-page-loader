@@ -95,7 +95,7 @@ Then select the source from which you want to load the page:
 <!-- no toc -->
 * [NPM Package](#load-pages-from-npm-package)
 * [Composer Package](#load-pages-from-composer-package)
-* [Modules (in main app)](#load-pages-from-modules-in-main-app)
+* [Modules (in the main app)](#load-pages-from-modules-in-main-app)
 
 If you created or have a package, you can select the build tool to use the package:
 
@@ -280,7 +280,7 @@ Inertia::render('my-package::Some'); // in npm package
 Inertia::render('my-php-package::Some'); // in composer package
 ```
 
-### Load pages from Modules (in main app)
+### Load pages from Modules (in the main app)
 
 If you use the modules package to manage your Laravel application, such as [Laravel Modules](https://github.com/nWidart/laravel-modules), you can also define namespace mapping:
 
@@ -319,13 +319,13 @@ Sometimes you may want users to use the pages without compiling them after insta
 
 ```
 resources/js/
-  ├── my-runtime-pluin.js
+  ├── my-runtime-plugin.js
   └── pages/
      ├── Some.vue
      └── Other.vue
 ```
 
-Use the **InertiaPlugin** runtime API in `resources/js/my-runtime-pluin.js` to load pages:
+Use the **InertiaPlugin** runtime API in `resources/js/my-runtime-plugin.js` to load pages:
 
 ```js
 window.InertiaPlugin.addNamespace('my-runtime', name => require(`./Pages/${name}`))
@@ -338,18 +338,18 @@ const mix = require('laravel-mix')
 
 mix
   .setPublicPath('public')
-  .js('resources/js/my-runtime-pluin.js', 'public/js')
+  .js('resources/js/my-runtime-plugin.js', 'public/js')
   .vue({ runtimeOnly: true })
   .version()
   .disableNotifications()
 ```
 
-Now you can publish this package and install it in the Inertia app, publish assets (`my-runtime-pluin.js`) to `public/vendor/inertia-plugins`, and open `app.blade.php` to include scripts to load pages:
+Now you can publish this package and install it in the Inertia app, publish assets (`my-runtime-plugin.js`) to `public/vendor/inertia-plugins`, and open `app.blade.php` to include scripts to load pages:
 
 ```html
 <head>
   <script src="https://cdn.jsdelivr.net/npm/inertia-plugin@^0.4.0"></script>
-  <script src="/vendor/inertia-plugins/my-runtime-pluin.js" defer></script>
+  <script src="/vendor/inertia-plugins/my-runtime-plugin.js" defer></script>
   <!-- app.js must be last one -->
   <script src="{{ mix('/js/app.js') }}" defer></script>
 </head>
@@ -418,7 +418,7 @@ Inertia({
 
 ## Sponsor
 
-If you think this package have helped you, please consider [Become a sponsor](https://www.patreon.com/ycs77) to support my work~ and your avatar will be visible on my major projects.
+If you think this package has helped you, please consider [Becoming a sponsor](https://www.patreon.com/ycs77) to support my work~ and your avatar will be visible on my major projects.
 
 <p align="center">
   <a href="https://www.patreon.com/ycs77">
