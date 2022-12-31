@@ -404,8 +404,9 @@ Inertia({
 
   // Module extensions.
   extensions: '',
-  // extensions: 'vue', // if use vite the defaults is 'vue'
-  // extensions: 'vue', // webpack example
+  // extensions: '',            // webpack default
+  // extensions: 'vue',         // webpack example
+  // extensions: 'vue',         // vite default
   // extensions: ['vue', 'js'], // vite example
 
   // Use `import()` to load pages for webpack, default is using `require()`.
