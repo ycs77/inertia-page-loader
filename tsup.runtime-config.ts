@@ -9,7 +9,7 @@ export default <Options>{
   minify: true,
   outExtension({ format }) {
     if (format === 'cjs') {
-      return { js: '.js' }
+      return { js: '.cjs' }
     } else if (format === 'esm') {
       return { js: '.mjs' }
     }

@@ -23,32 +23,32 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "require": "./dist/index.js",
+      "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     },
     "./vite": {
-      "require": "./dist/vite.js",
+      "require": "./dist/vite.cjs",
       "import": "./dist/vite.mjs"
     },
     "./webpack": {
-      "require": "./dist/webpack.js",
+      "require": "./dist/webpack.cjs",
       "import": "./dist/webpack.mjs"
     },
     "./rollup": {
-      "require": "./dist/rollup.js",
+      "require": "./dist/rollup.cjs",
       "import": "./dist/rollup.mjs"
     },
     "./runtime": {
-      "require": "./dist/runtime.js",
+      "require": "./dist/runtime.cjs",
       "import": "./dist/runtime.mjs"
     },
     "./types": {
-      "require": "./dist/types.js",
+      "require": "./dist/types.cjs",
       "import": "./dist/types.mjs"
     },
     "./*": "./*"
   },
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "unpkg": "dist/runtime.iife.js",
   "jsdelivr": "dist/runtime.iife.js",
