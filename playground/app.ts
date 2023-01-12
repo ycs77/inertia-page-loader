@@ -6,7 +6,6 @@ createApp({
   mounted() {
     document.querySelector<HTMLElement>('#app ~ a')!.style.display = 'block'
   },
-  // @ts-expect-error
   render: () => h(App, {
     initialPage: {
       component: 'Page1',
@@ -15,12 +14,17 @@ createApp({
       // component: 'my-package-2::Page222',
       // component: 'my-package-2::Page223',
       // component: 'my-php-package::PhpPackagePage',
-      props: {},
+      props: {
+        errors: {},
+      },
       url: '/',
       version: '',
+      scrollRegions: [],
+      rememberedState: {},
+      resolvedErrors: {},
     },
     resolveComponent: resolvePage(() => {
-      return import.meta.glob('./pages/**/*.vue')
+      return import.meta.glob('./pages/**/*.vue', { eager: true })
     }),
   }),
 })

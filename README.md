@@ -203,7 +203,7 @@ import { resolvePage } from '~inertia'
 
 createInertiaApp({
   resolve: resolvePage(() => {
-    return import.meta.glob('./pages/**/*.vue')
+    return import.meta.glob('./pages/**/*.vue', { eager: true })
   }),
 })
 ```
@@ -215,7 +215,7 @@ import Layout from './Layout'
 
 createInertiaApp({
   resolve: resolvePage(name => {
-    return import.meta.glob('./pages/**/*.vue')
+    return import.meta.glob('./pages/**/*.vue', { eager: true })
   }, page => {
     page.layout = Layout
     return page
