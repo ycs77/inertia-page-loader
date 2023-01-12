@@ -8,10 +8,6 @@ const ids = [
 ]
 
 function resolveOptions(options: Options, meta: UnpluginContextMeta) {
-  if (options.extension) {
-    options.extensions = options.extensions ?? options.extension
-  }
-
   let extensions = options.extensions
   if (meta.framework === 'vite' && !extensions) {
     extensions = 'vue'

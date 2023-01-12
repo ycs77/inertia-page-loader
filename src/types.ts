@@ -40,21 +40,6 @@ export interface Options {
   extensions?: string | string[]
 
   /**
-   * Module extensions.
-   *
-   * vite:
-   * @type {string|string[]}
-   * @default 'vue'
-   *
-   * webpack:
-   * @type {string}
-   * @default ''
-   *
-   * @deprecated Use `extensions` instead
-   */
-  extension?: string | string[]
-
-  /**
    * Use `import()` to load pages for webpack, default is using `require()`.
    * Only for webpack.
    *
