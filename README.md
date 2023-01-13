@@ -349,7 +349,7 @@ Now you can publish this package and install it in the Inertia app, publish asse
 
 ```html
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/inertia-plugin@^0.4.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/inertia-plugin@0.6.0/dist/runtime.iife.js"></script>
   <script src="/vendor/inertia-plugins/my-runtime-plugin.js" defer></script>
   <!-- app.js must be last one -->
   <script src="{{ mix('/js/app.js') }}" defer></script>
