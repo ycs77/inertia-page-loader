@@ -437,7 +437,6 @@ If you think this package has helped you, please consider [Becoming a sponsor](h
 * [inertia-laravel#92](https://github.com/inertiajs/inertia-laravel/issues/92)
 * [unplugin](https://github.com/unjs/unplugin)
 * [Laravel](https://laravel.com/)
-* [Laravel Vite](https://laravel-vite.dev/)
 
 ## License
 
