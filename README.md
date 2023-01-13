@@ -223,7 +223,7 @@ createInertiaApp({
 })
 ```
 
-Now you can use the pages:
+Now you can use the page in your controller:
 
 ```php
 Inertia::render('my-package::Some'); // in npm package
@@ -274,7 +274,7 @@ createInertiaApp({
 })
 ```
 
-Now you can use the pages:
+Now you can use the page in your controller:
 
 ```php
 Inertia::render('my-package::Some'); // in npm package
@@ -306,7 +306,7 @@ export default defineConfig({
 })
 ```
 
-Now you can use the pages:
+Now you can use the page in your controller:
 
 ```php
 Inertia::render('my-module::Some');
@@ -383,7 +383,7 @@ mix
   })
 ```
 
-Over, using pages:
+Now you can use the page in your controller:
 
 ```php
 Inertia::render('my-runtime::Some');
