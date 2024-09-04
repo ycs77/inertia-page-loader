@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "cross-env DEBUG=inertia-plugin:* vite",
-    "build": "cross-env DEBUG=inertia-plugin:* vue-tsc --noEmit && vite build",
-    "serve": "cross-env DEBUG=inertia-plugin:* vite preview"
+    "dev": "cross-env DEBUG=inertia-page-loader:* vite",
+    "build": "cross-env DEBUG=inertia-page-loader:* vue-tsc --noEmit && vite build",
+    "serve": "cross-env DEBUG=inertia-page-loader:* vite preview"
   },
   "dependencies": {
     "@inertiajs/inertia": "^0.11.0",
@@ -13,7 +13,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
     "cross-env": "^7.0.3",
-    "inertia-plugin": "workspace:*",
+    "inertia-page-loader": "workspace:*",
     "typescript": "~4.7.3",
     "vite": "^4.4.0",
     "vite-plugin-inspect": "^0.7.0",

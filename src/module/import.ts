@@ -2,8 +2,8 @@ import Debug from 'debug'
 import { type GetPageFilesOptions, getPageFiles } from './files'
 
 const debug = {
-  pages: Debug('inertia-plugin:module:import:pages'),
-  imports: Debug('inertia-plugin:module:import:imports'),
+  pages: Debug('inertia-page-loader:module:import:pages'),
+  imports: Debug('inertia-page-loader:module:import:imports'),
 }
 
 export interface GenerateImportGlobCodeOptions extends GetPageFilesOptions {

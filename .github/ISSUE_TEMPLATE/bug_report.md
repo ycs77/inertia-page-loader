@@ -9,8 +9,8 @@ assignees: ''
 
 **Use Version:**
 Use version when bugs appear.
-- vite: v2.9.0 / laravel-mix v6.0.0
-- inertia-plugin: v0.2.0
+- vite: v5.0.0 / laravel-mix v6.0.0
+- inertia-page-loader: v0.6.0
 
 **Describe the bug**
 A clear and concise description of what the bug is.

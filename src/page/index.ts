@@ -44,7 +44,7 @@ export async function resolvePluginPage(name) {
       }
 
       if (!namespaces[namespace]) {
-        throw new Error(\`[inertia-plugin]: Namespace "\${namespace}" not found\`)
+        throw new Error(\`[inertia-page-loader]: Namespace "\${namespace}" not found\`)
       }
 
       for (const importedNamespace of namespaces[namespace]) {
@@ -68,7 +68,7 @@ export async function resolveVitePage(name, pages, throwNotFoundError = true) {
   }
 
   if (throwNotFoundError) {
-    throw new Error(\`[inertia-plugin]: Page "\${name}" not found\`)
+    throw new Error(\`[inertia-page-loader]: Page "\${name}" not found\`)
   }
 }`
 }

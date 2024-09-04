@@ -1,17 +1,17 @@
 {
-  "name": "inertia-plugin",
+  "name": "inertia-page-loader",
   "version": "0.6.0",
   "packageManager": "pnpm@7.1.1",
   "description": "The plugin page loader for Inertia.js",
   "author": "Lucas Yang <yangchenshin77@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/ycs77/inertia-plugin#readme",
+  "homepage": "https://github.com/ycs77/inertia-page-loader#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ycs77/inertia-plugin.git"
+    "url": "git+https://github.com/ycs77/inertia-page-loader.git"
   },
   "bugs": {
-    "url": "https://github.com/ycs77/inertia-plugin/issues"
+    "url": "https://github.com/ycs77/inertia-page-loader/issues"
   },
   "keywords": [
     "unplugin",

@@ -49,7 +49,7 @@ importers:
       '@inertiajs/inertia-vue3': ^0.6.0
       '@vitejs/plugin-vue': ^4.0.0
       cross-env: ^7.0.3
-      inertia-plugin: workspace:*
+      inertia-page-loader: workspace:*
       typescript: ~4.7.3
       vite: ^4.4.0
       vite-plugin-inspect: ^0.7.0
@@ -62,7 +62,7 @@ importers:
     devDependencies:
       '@vitejs/plugin-vue': 4.0.0_vite@4.4.9+vue@3.2.45
       cross-env: 7.0.3
-      inertia-plugin: link:..
+      inertia-page-loader: link:..
       typescript: 4.7.3
       vite: 4.4.9
       vite-plugin-inspect: 0.7.14_vite@4.4.9

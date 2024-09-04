@@ -2,7 +2,7 @@ import { join } from 'path'
 import fg from 'fast-glob'
 import Debug from 'debug'
 
-const debug = Debug('inertia-plugin:module:files')
+const debug = Debug('inertia-page-loader:module:files')
 
 export interface GetPageFilesOptions {
   /**

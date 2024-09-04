@@ -33,7 +33,7 @@ export default createUnplugin<Options>((userOptions, meta) => {
   const options = resolveOptions(userOptions || {}, meta)
 
   return {
-    name: 'inertia-plugin',
+    name: 'inertia-page-loader',
     enforce: 'pre',
     resolveId(id) {
       if (id.startsWith(ids[1])) {

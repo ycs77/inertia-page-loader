@@ -14,12 +14,12 @@ export function createPackageNamespaceExtractor(options: PackageNamespaceExtract
   return (pkg: string, dir: string = options.dir) => {
     const fullpath = path.resolve(options.cwd, dir, pkg, options.filename)
     if (!fs.existsSync(fullpath)) {
-      throw new Error(`[inertia-plugin]: The ${options.name} "${pkg}" does not exist`)
+      throw new Error(`[inertia-page-loader]: The ${options.name} "${pkg}" does not exist`)
     }
 
     const namespaces = options.parse(fs.readFileSync(fullpath, { encoding: 'utf-8' }))
     if (!namespaces) {
-      throw new Error(`[inertia-plugin]: The ${options.filename} parse error of "${pkg}"`)
+      throw new Error(`[inertia-page-loader]: The ${options.filename} parse error of "${pkg}"`)
     }
 
     for (const namespace in namespaces) {

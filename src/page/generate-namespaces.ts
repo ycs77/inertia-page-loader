@@ -4,7 +4,7 @@ import type { ResolvedOptions } from '../types'
 import { generateImportGlobCode } from '../module/import'
 import { resolveNamespaces } from './namespace-option'
 
-const debug = Debug('inertia-plugin:page:generate-namespaces')
+const debug = Debug('inertia-page-loader:page:generate-namespaces')
 
 export function generateNamespacesCode(options: ResolvedOptions, meta: UnpluginContextMeta) {
   const cwd = options.cwd

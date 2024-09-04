@@ -1,4 +1,4 @@
-# Inertia Plugin
+# Inertia Page Loader
 
 [![NPM version][ico-version]][link-npm]
 [![Software License][ico-license]](LICENSE)
@@ -20,7 +20,7 @@ The plugin page loader for Inertia.js, that allows the server-side to use `Inert
 First, install the Inertia Plugin to your main Inertia app:
 
 ```bash
-npm i inertia-plugin -D
+npm i inertia-page-loader -D
 ```
 
 <details>
@@ -28,11 +28,11 @@ npm i inertia-plugin -D
 
 ```ts
 // vite.config.js
-import Inertia from 'inertia-plugin/vite'
+import InertiaPageLoader from 'inertia-page-loader/vite'
 
 export default defineConfig({
   plugins: [
-    Inertia({ /* options */ }),
+    InertiaPageLoader({ /* options */ }),
   ],
 })
 ```
@@ -44,12 +44,12 @@ export default defineConfig({
 
 ```ts
 // webpack.config.js
-const InertiaPlugin = require('inertia-plugin/webpack')
+const InertiaPageLoaderPlugin = require('inertia-page-loader/webpack')
 
 module.exports = {
   /* ... */
   plugins: [
-    InertiaPlugin({ /* options */ }),
+    InertiaPageLoaderPlugin({ /* options */ }),
   ],
 }
 ```
@@ -61,12 +61,12 @@ module.exports = {
 
 ```ts
 // webpack.mix.js
-const InertiaPlugin = require('inertia-plugin/webpack')
+const InertiaPageLoaderPlugin = require('inertia-page-loader/webpack')
 
 mix
   .webpackConfig({
     plugins: [
-      InertiaPlugin({ /* options */ }),
+      InertiaPageLoaderPlugin({ /* options */ }),
     ],
   })
 ```
@@ -78,7 +78,7 @@ mix
 Add to `env.d.ts`:
 
 ```ts
-/// <reference types="inertia-plugin/client" />
+/// <reference types="inertia-page-loader/client" />
 ```
 
 ## Usage
@@ -176,14 +176,14 @@ Next step you can select the build tool to use:
 
 ### Usage with Vite
 
-Add `inertia-plugin` to `vite.config.js`, and you can use the function `npm()` or `composer()` to load the namespace:
+Add `inertia-page-loader` to `vite.config.js`, and you can use the function `npm()` or `composer()` to load the namespace:
 
 ```js
-import Inertia from 'inertia-plugin/vite'
+import InertiaPageLoader from 'inertia-page-loader/vite'
 
 export default defineConfig({
   plugins: [
-    Inertia({
+    InertiaPageLoader({
       namespaces: ({ npm, composer }) => [
         // load namespace from npm package:
         npm('my-plugin'),
@@ -232,7 +232,7 @@ Inertia::render('my-php-package::Some'); // in composer package
 
 ### Usage with Laravel Mix
 
-Add `inertia-plugin` to `webpack.mix.js`, and you can use the function `npm()` or `composer()` to load the namespace:
+Add `inertia-page-loader` to `webpack.mix.js`, and you can use the function `npm()` or `composer()` to load the namespace:
 
 ```js
 mix
@@ -349,22 +349,22 @@ Now you can publish this package and install it in the Inertia app, publish asse
 
 ```html
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/inertia-plugin@0.6.0/dist/runtime.iife.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/inertia-page-loader@0.6.0/dist/runtime.iife.js"></script>
   <script src="/vendor/inertia-plugins/my-runtime-plugin.js" defer></script>
   <!-- app.js must be last one -->
   <script src="{{ mix('/js/app.js') }}" defer></script>
 </head>
 ```
 
-But the `app.js` must build with `inertia-plugin`, you can follow [Install](#install) chapter to install it (does not need to include any option), like this:
+But the `app.js` must build with `inertia-page-loader`, you can follow [Install](#install) chapter to install it (does not need to include any option), like this:
 
 ```js
 // vite.config.js
-import Inertia from 'inertia-plugin/vite'
+import InertiaPageLoader from 'inertia-page-loader/vite'
 
 export default defineConfig({
   plugins: [
-    Inertia(),
+    InertiaPageLoader(),
   ],
 })
 ```
@@ -373,12 +373,12 @@ Or using in Laravel Mix:
 
 ```js
 // webpack.mix.js
-const InertiaPlugin = require('inertia-plugin/webpack')
+const InertiaPageLoaderPlugin = require('inertia-page-loader/webpack')
 
 mix
   .webpackConfig({
     plugins: [
-      InertiaPlugin(),
+      InertiaPageLoaderPlugin(),
     ],
   })
 ```
@@ -442,11 +442,11 @@ If you think this package has helped you, please consider [Becoming a sponsor](h
 
 [MIT LICENSE](LICENSE)
 
-[ico-version]: https://img.shields.io/npm/v/inertia-plugin?style=flat-square
+[ico-version]: https://img.shields.io/npm/v/inertia-page-loader?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square
-[ico-github-action]: https://img.shields.io/github/actions/workflow/status/ycs77/inertia-plugin/tests.yml?branch=main&label=tests&style=flat-square
-[ico-downloads]: https://img.shields.io/npm/dt/inertia-plugin?style=flat-square
+[ico-github-action]: https://img.shields.io/github/actions/workflow/status/ycs77/inertia-page-loader/tests.yml?branch=main&label=tests&style=flat-square
+[ico-downloads]: https://img.shields.io/npm/dt/inertia-page-loader?style=flat-square
 
-[link-npm]: https://www.npmjs.com/package/inertia-plugin
-[link-github-action]: https://github.com/ycs77/inertia-plugin/actions/workflows/tests.yml?query=branch%3Amain
-[link-downloads]: https://www.npmjs.com/package/inertia-plugin
+[link-npm]: https://www.npmjs.com/package/inertia-page-loader
+[link-github-action]: https://github.com/ycs77/inertia-page-loader/actions/workflows/tests.yml?query=branch%3Amain
+[link-downloads]: https://www.npmjs.com/package/inertia-page-loader
