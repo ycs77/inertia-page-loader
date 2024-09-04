@@ -1,6 +1,6 @@
 {
   "name": "inertia-page-loader",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "packageManager": "pnpm@7.1.1",
   "description": "The plugin page loader for Inertia.js",
   "author": "Lucas Yang <yangchenshin77@gmail.com>",
