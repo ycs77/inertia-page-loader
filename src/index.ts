@@ -1,17 +1,21 @@
-import { type UnpluginContextMeta, createUnplugin } from 'unplugin'
+import { createUnplugin } from 'unplugin'
+import type { UnpluginContextMeta, UnpluginFactory } from 'unplugin'
 import { pageLoader } from './page'
+import { isViteLike, isWebpackLike } from './utils'
 import type { Options, ResolvedOptions } from './types'
 
 const ids = [
   '/~inertia',
   '~inertia',
+  'virtual:inertia',
+  'virtual/inertia',
 ]
 
 function resolveOptions(options: Options, meta: UnpluginContextMeta) {
   let extensions = options.extensions
-  if (meta.framework === 'vite' && !extensions) {
+  if (isViteLike(meta.framework) && !extensions) {
     extensions = 'vue'
-  } else if (meta.framework === 'webpack' && Array.isArray(extensions)) {
+  } else if (isWebpackLike(meta.framework) && Array.isArray(extensions)) {
     extensions = extensions[0]
   }
   extensions = (Array.isArray(extensions) ? extensions : [extensions ?? '']) as string[]
@@ -29,19 +33,19 @@ function resolveOptions(options: Options, meta: UnpluginContextMeta) {
   }) as ResolvedOptions
 }
 
-export default createUnplugin<Options>((userOptions, meta) => {
+export const unpluginFactory: UnpluginFactory<Options | undefined> = (userOptions, meta) => {
   const options = resolveOptions(userOptions || {}, meta)
 
   return {
     name: 'inertia-page-loader',
     enforce: 'pre',
     resolveId(id) {
-      if (id.startsWith(ids[1])) {
-        return id.replace(ids[1], ids[0])
+      if (ids.includes(id)) {
+        return ids[1]
       }
     },
     load(id: string) {
-      if (id.startsWith(ids[0])) {
+      if (ids.includes(id)) {
         const code = pageLoader(options, meta)
         return {
           code,
@@ -50,4 +54,8 @@ export default createUnplugin<Options>((userOptions, meta) => {
       }
     },
   }
-})
+}
+
+export const unplugin = /* #__PURE__ */ createUnplugin(unpluginFactory)
+
+export default unplugin

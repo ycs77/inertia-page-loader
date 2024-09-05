@@ -12,7 +12,9 @@ export default <Options>{
       return { js: '.cjs' }
     } else if (format === 'esm') {
       return { js: '.mjs' }
+    } else if (format === 'iife') {
+      return { js: '.iife.js' }
     }
-    return { js: `.${format}.js` }
+    return {}
   },
 }

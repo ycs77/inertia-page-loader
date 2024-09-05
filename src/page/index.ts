@@ -1,5 +1,7 @@
+/* eslint-disable style/indent */
 import type { UnpluginContextMeta } from 'unplugin'
 import type { ResolvedOptions } from '../types'
+import { isViteLike } from '../utils'
 import { generateNamespacesCode } from './generate-namespaces'
 
 export function pageLoader(options: ResolvedOptions, meta: UnpluginContextMeta) {
@@ -13,7 +15,7 @@ export function resolvePage(resolver, transformPage) {
     let page = await resolvePluginPage(name)
     if (!page) {
       page = ${
-        meta.framework === 'vite'
+        isViteLike(meta.framework)
           ? 'await resolveVitePage(name, await resolver(name.replace(\'.\', \'/\')))'
           : 'await resolver(name.replace(\'.\', \'/\'))'
       }

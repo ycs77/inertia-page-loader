@@ -67,7 +67,11 @@ export type PageResolver<T = any> = (name: string) => T | Promise<T>
 export type Namespace = Record<string, string | string[]>
 export type ResolvedNamespace = Record<string, string[]>
 export interface NamespacesArgs {
-  npm(pkg: string, dir: string): Namespace
-  composer(pkg: string, dir: string): Namespace
+  npm: (pkg: string, dir: string) => Namespace
+  composer: (pkg: string, dir: string) => Namespace
 }
 export type Namespaces = Namespace[] | ((args: NamespacesArgs) => Namespace[])
+
+export interface GenerateNamespacesCodeContextMeta {
+  framework: 'rollup' | 'vite' | 'rolldown' | 'webpack' | 'esbuild' | 'rspack' | 'farm'
+}

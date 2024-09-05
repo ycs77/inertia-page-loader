@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
 import type { Namespace, Namespaces, ResolvedNamespace } from '../types'
 
 export interface PackageNamespaceExtractorOptions {
@@ -7,7 +7,7 @@ export interface PackageNamespaceExtractorOptions {
   filename: string
   dir: string
   cwd: string
-  parse(content: string): Namespace
+  parse: (content: string) => Namespace
 }
 
 export function createPackageNamespaceExtractor(options: PackageNamespaceExtractorOptions) {
@@ -34,8 +34,8 @@ export function createPackageNamespaceExtractor(options: PackageNamespaceExtract
   }
 }
 
-export const createNpm = (cwd: string = process.cwd()) =>
-  createPackageNamespaceExtractor({
+export function createNpm(cwd: string = process.cwd()) {
+  return createPackageNamespaceExtractor({
     name: 'NPM package',
     filename: 'package.json',
     cwd,
@@ -44,9 +44,10 @@ export const createNpm = (cwd: string = process.cwd()) =>
       return JSON.parse(content).inertia
     },
   })
+}
 
-export const createComposer = (cwd: string = process.cwd()) =>
-  createPackageNamespaceExtractor({
+export function createComposer(cwd: string = process.cwd()) {
+  return createPackageNamespaceExtractor({
     name: 'Composer package',
     filename: 'composer.json',
     cwd,
@@ -55,6 +56,7 @@ export const createComposer = (cwd: string = process.cwd()) =>
       return JSON.parse(content).extra.inertia
     },
   })
+}
 
 export function resolveNamespaces(cwd: string, namespaces: Namespaces): ResolvedNamespace {
   const resolvedNamespaces = typeof namespaces === 'function'

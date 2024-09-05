@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { generateNamespacesCode } from '../src/page/generate-namespaces'
 import type { Namespaces, ResolvedOptions } from '../src/types'
@@ -42,18 +42,18 @@ describe('generate namespaces', () => {
       "{
               'my-package-1': [
                 name => resolveVitePage(name, {
-                  \\"/test_node_modules/my-plugin1/src/Pages/Page3.vue\\": () => import(\\"/test_node_modules/my-plugin1/src/Pages/Page3.vue\\"),
+                  "/test_node_modules/my-plugin1/src/Pages/Page3.vue": () => import("/test_node_modules/my-plugin1/src/Pages/Page3.vue"),
                 }, false),
               ],
               'my-package-2': [
                 name => resolveVitePage(name, {
-                  \\"/test_node_modules/my-plugin2/src/other-pages/Page222.vue\\": () => import(\\"/test_node_modules/my-plugin2/src/other-pages/Page222.vue\\"),
-                  \\"/test_node_modules/my-plugin2/src/other-pages/Page223.vue\\": () => import(\\"/test_node_modules/my-plugin2/src/other-pages/Page223.vue\\"),
+                  "/test_node_modules/my-plugin2/src/other-pages/Page222.vue": () => import("/test_node_modules/my-plugin2/src/other-pages/Page222.vue"),
+                  "/test_node_modules/my-plugin2/src/other-pages/Page223.vue": () => import("/test_node_modules/my-plugin2/src/other-pages/Page223.vue"),
                 }, false),
               ],
               'my-php-package': [
                 name => resolveVitePage(name, {
-                  \\"/test_vendor/ycs77/my-php-package/resources/js/Pages/PhpPackagePage.vue\\": () => import(\\"/test_vendor/ycs77/my-php-package/resources/js/Pages/PhpPackagePage.vue\\"),
+                  "/test_vendor/ycs77/my-php-package/resources/js/Pages/PhpPackagePage.vue": () => import("/test_vendor/ycs77/my-php-package/resources/js/Pages/PhpPackagePage.vue"),
                 }, false),
               ],
             }"
@@ -79,18 +79,18 @@ describe('generate namespaces', () => {
       "{
               'my-package-1': [
                 name => resolveVitePage(name, {
-                  \\"/test_node_modules/my-plugin1/src/Pages/Page3.vue\\": () => import(__import_page_0__),
+                  "/test_node_modules/my-plugin1/src/Pages/Page3.vue": () => import(__import_page_0__),
                 }, false),
               ],
               'my-package-2': [
                 name => resolveVitePage(name, {
-                  \\"/test_node_modules/my-plugin2/src/other-pages/Page222.vue\\": () => import(__import_page_1__),
-                  \\"/test_node_modules/my-plugin2/src/other-pages/Page223.vue\\": () => import(__import_page_2__),
+                  "/test_node_modules/my-plugin2/src/other-pages/Page222.vue": () => import(__import_page_1__),
+                  "/test_node_modules/my-plugin2/src/other-pages/Page223.vue": () => import(__import_page_2__),
                 }, false),
               ],
               'my-php-package': [
                 name => resolveVitePage(name, {
-                  \\"/test_vendor/ycs77/my-php-package/resources/js/Pages/PhpPackagePage.vue\\": () => import(__import_page_3__),
+                  "/test_vendor/ycs77/my-php-package/resources/js/Pages/PhpPackagePage.vue": () => import(__import_page_3__),
                 }, false),
               ],
             }"
@@ -110,13 +110,13 @@ describe('generate namespaces', () => {
     expect(code.namespacesCode).toMatchInlineSnapshot(`
       "{
               'my-package-1': [
-                name => require(\`../test_node_modules/my-plugin1/src/Pages/\${name}\`),
+                name => require(\`./test_node_modules/my-plugin1/src/Pages/\${name}\`),
               ],
               'my-package-2': [
-                name => require(\`../test_node_modules/my-plugin2/src/other-pages/\${name}\`),
+                name => require(\`./test_node_modules/my-plugin2/src/other-pages/\${name}\`),
               ],
               'my-php-package': [
-                name => require(\`../test_vendor/ycs77/my-php-package/resources/js/Pages/\${name}\`),
+                name => require(\`./test_vendor/ycs77/my-php-package/resources/js/Pages/\${name}\`),
               ],
             }"
     `)
@@ -136,13 +136,13 @@ describe('generate namespaces', () => {
     expect(code.namespacesCode).toMatchInlineSnapshot(`
       "{
               'my-package-1': [
-                name => import(\`../test_node_modules/my-plugin1/src/Pages/\${name}\`),
+                name => import(\`./test_node_modules/my-plugin1/src/Pages/\${name}\`),
               ],
               'my-package-2': [
-                name => import(\`../test_node_modules/my-plugin2/src/other-pages/\${name}\`),
+                name => import(\`./test_node_modules/my-plugin2/src/other-pages/\${name}\`),
               ],
               'my-php-package': [
-                name => import(\`../test_vendor/ycs77/my-php-package/resources/js/Pages/\${name}\`),
+                name => import(\`./test_vendor/ycs77/my-php-package/resources/js/Pages/\${name}\`),
               ],
             }"
     `)

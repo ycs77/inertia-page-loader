@@ -3,7 +3,6 @@ import type { Options } from 'tsup'
 export default <Options>{
   entry: ['src/*.ts'],
   clean: true,
-  splitting: true,
   format: ['cjs', 'esm'],
   outExtension({ format }) {
     if (format === 'cjs') {
@@ -11,8 +10,10 @@ export default <Options>{
     } else if (format === 'esm') {
       return { js: '.mjs' }
     }
-    return { js: `.${format}.js` }
+    return {}
   },
   dts: true,
+  cjsInterop: true,
+  splitting: true,
   onSuccess: 'npm run build:fix',
 }

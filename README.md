@@ -26,7 +26,7 @@ npm i inertia-page-loader -D
 <details>
 <summary>Vite</summary><br>
 
-```ts
+```js
 // vite.config.js
 import InertiaPageLoader from 'inertia-page-loader/vite'
 
@@ -42,7 +42,7 @@ export default defineConfig({
 <details>
 <summary>Webpack</summary><br>
 
-```ts
+```js
 // webpack.config.js
 const InertiaPageLoaderPlugin = require('inertia-page-loader/webpack')
 
@@ -59,7 +59,7 @@ module.exports = {
 <details>
 <summary>Laravel Mix</summary><br>
 
-```ts
+```js
 // webpack.mix.js
 const InertiaPageLoaderPlugin = require('inertia-page-loader/webpack')
 
@@ -329,7 +329,7 @@ resources/js/
 Use the **InertiaPlugin** runtime API in `resources/js/my-runtime-plugin.js` to load pages:
 
 ```js
-window.InertiaPlugin.addNamespace('my-runtime', name => require(`./Pages/${name}`))
+window.InertiaPlugin.addNamespace('my-runtime', name => require(`./pages/${name}`))
 ```
 
 And setting `webpack.mix.js` to build assets:
@@ -444,9 +444,9 @@ If you think this package has helped you, please consider [Becoming a sponsor](h
 
 [ico-version]: https://img.shields.io/npm/v/inertia-page-loader?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square
-[ico-github-action]: https://img.shields.io/github/actions/workflow/status/ycs77/inertia-page-loader/tests.yml?branch=main&label=tests&style=flat-square
+[ico-github-action]: https://img.shields.io/github/actions/workflow/status/ycs77/inertia-page-loader/ci.yml?branch=main&label=tests&style=flat-square
 [ico-downloads]: https://img.shields.io/npm/dt/inertia-page-loader?style=flat-square
 
 [link-npm]: https://www.npmjs.com/package/inertia-page-loader
-[link-github-action]: https://github.com/ycs77/inertia-page-loader/actions/workflows/tests.yml?query=branch%3Amain
+[link-github-action]: https://github.com/ycs77/inertia-page-loader/actions/workflows/ci.yml?query=branch%3Amain
 [link-downloads]: https://www.npmjs.com/package/inertia-page-loader
