@@ -238,7 +238,7 @@ Add `inertia-page-loader` to `webpack.mix.js`, and you can use the function `npm
 mix
   .webpackConfig({
     plugins: [
-      inertiaPlugin({
+      InertiaPageLoaderPlugin({
         namespaces: ({ npm, composer }) => [
           // load namespace from npm package:
           npm('my-plugin'),
@@ -290,7 +290,7 @@ If you use the modules package to manage your Laravel application, such as [Lara
 ```js
 export default defineConfig({
   plugins: [
-    Inertia({
+    InertiaPageLoader({
       namespaces: [
         // define namespace mapping:
         { 'my-module': 'Modules/MyModule/Resources/js/pages' },
@@ -392,7 +392,7 @@ Inertia::render('my-runtime::Some');
 ## Configuration
 
 ```js
-Inertia({
+InertiaPageLoader({
   // Current work directory.
   cwd: process.cwd(),
 
