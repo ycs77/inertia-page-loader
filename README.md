@@ -392,6 +392,57 @@ Now you can use the page in your controller:
 Inertia::render('my-runtime::Some');
 ```
 
+## Migrate from `inertia-plugin`
+
+Update package in `package.json`:
+
+```diff
+ {
+   "devDependencies": {
+-    "inertia-plugin": "*"
++    "inertia-page-loader": "^0.7.0"
+   }
+ }
+```
+
+Rename vite plugin:
+
+```diff
+ // vite.config.js
+-import Inertia from 'inertia-plugin/vite'
++import InertiaPageLoader from 'inertia-page-loader/vite'
+
+ export default defineConfig({
+   plugins: [
+-    Inertia({ /* options */ }),
++    InertiaPageLoader({ /* options */ }),
+   ],
+ })
+```
+
+Rename webpack plugin:
+
+```diff
+ // webpack.config.js
+-const InertiaPlugin = require('inertia-plugin/webpack')
++const InertiaPageLoaderPlugin = require('inertia-page-loader/webpack')
+
+ module.exports = {
+   /* ... */
+   plugins: [
+-    InertiaPlugin({ /* options */ }),
++    InertiaPageLoaderPlugin({ /* options */ }),
+   ],
+ }
+```
+
+Update CDN link if you used:
+
+```diff
+-<script src="https://cdn.jsdelivr.net/npm/inertia-plugin@0.6.0/dist/runtime.iife.js"></script>
++<script src="https://cdn.jsdelivr.net/npm/inertia-page-loader@0.7.0/dist/runtime.iife.js"></script>
+```
+
 ## Configuration
 
 ```js
