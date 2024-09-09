@@ -1,8 +1,8 @@
-import InertiaPlugin from './plugin'
+import InertiaPages from './plugin'
 
-if (!window.InertiaPlugin) {
+if (!window.InertiaPages) {
   // @ts-ignore
-  window.InertiaPlugin = new InertiaPlugin()
+  window.InertiaPages = new InertiaPages()
 }
 
-export { InertiaPlugin }
+export { InertiaPages }

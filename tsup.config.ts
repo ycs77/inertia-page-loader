@@ -1,6 +1,6 @@
 import type { Options } from 'tsup'
 
-export default <Options>{
+export default {
   entry: ['src/*.ts'],
   clean: true,
   format: ['cjs', 'esm'],
@@ -16,4 +16,4 @@ export default <Options>{
   cjsInterop: true,
   splitting: true,
   onSuccess: 'npm run build:fix',
-}
+} satisfies Options

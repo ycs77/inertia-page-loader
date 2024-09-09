@@ -1,7 +1,7 @@
 declare global {
   // @ts-ignore
   // eslint-disable-next-line vars-on-top, no-var
-  var InertiaPlugin: InstanceType<typeof import('./runtime/plugin')['default']>
+  var InertiaPages: InstanceType<typeof import('./runtime/plugin')['default']>
 }
 
 export interface Options {

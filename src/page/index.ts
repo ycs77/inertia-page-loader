@@ -37,8 +37,8 @@ export async function resolvePluginPage(name) {
       const namespaces = ${namespacesCode}
 
       /* Load namespaces on runtime from window global variable. */
-      if (window.InertiaPlugin) {
-        for (const namespaceGroup of window.InertiaPlugin.namespaces) {
+      if (window.InertiaPages) {
+        for (const namespaceGroup of window.InertiaPages.namespaces) {
           for (const namespace in namespaceGroup) {
             namespaces[namespace] = (namespaces[namespace] || []).concat(namespaceGroup[namespace])
           }

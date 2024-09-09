@@ -1,6 +1,6 @@
 import type { Options } from 'tsup'
 
-export default <Options>{
+export default {
   entry: {
     runtime: 'src/runtime/index.ts',
   },
@@ -17,4 +17,4 @@ export default <Options>{
     }
     return {}
   },
-}
+} satisfies Options

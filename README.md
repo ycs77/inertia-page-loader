@@ -316,6 +316,9 @@ Inertia::render('special-modal::VeryCoolModal');
 
 ## Build for Runtime
 
+> [!WARNING]
+> The runtime is not working with Vue Composition, it's recommended to use [Build for Static](#build-for-static).
+
 Sometimes you may want users to use the pages without compiling them after installing the composer package, at this time you can load them at runtime. This is the package directory structure:
 
 ```
@@ -326,10 +329,10 @@ resources/js/
      └── Other.vue
 ```
 
-Use the **InertiaPlugin** runtime API in `resources/js/my-runtime-plugin.js` to load pages:
+Use the **InertiaPages** runtime API in `resources/js/my-runtime-plugin.js` to load pages:
 
 ```js
-window.InertiaPlugin.addNamespace('my-runtime', name => require(`./pages/${name}`))
+window.InertiaPages.addNamespace('my-runtime', name => require(`./pages/${name}`))
 ```
 
 And setting `webpack.mix.js` to build assets:
@@ -349,7 +352,7 @@ Now you can publish this package and install it in the Inertia app, publish asse
 
 ```html
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/inertia-page-loader@0.7.0/dist/runtime.iife.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/inertia-page-loader@0.7.0/dist/runtime.iife.js" defer></script>
   <script src="/vendor/inertia-plugins/my-runtime-plugin.js" defer></script>
   <!-- app.js must be last one -->
   <script src="{{ mix('/js/app.js') }}" defer></script>
