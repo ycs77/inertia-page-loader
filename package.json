@@ -1,7 +1,7 @@
 {
   "name": "inertia-page-loader",
   "type": "module",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "packageManager": "pnpm@9.9.0",
   "description": "The plugin page loader for Inertia.js",
   "author": "Lucas Yang <yangchenshin77@gmail.com>",
