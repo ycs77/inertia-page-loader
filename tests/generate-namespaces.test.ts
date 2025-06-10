@@ -1,7 +1,7 @@
+import type { Namespaces, ResolvedOptions } from '../src/types'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { generateNamespacesCode } from '../src/page/generate-namespaces'
-import type { Namespaces, ResolvedOptions } from '../src/types'
 
 describe('generate namespaces', () => {
   const baseOptions = <ResolvedOptions>{

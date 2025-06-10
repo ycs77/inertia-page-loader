@@ -1,5 +1,5 @@
-import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
+import { createApp, h } from 'vue'
 import { resolvePage } from '~inertia'
 
 createInertiaApp({
@@ -28,7 +28,8 @@ createInertiaApp({
     },
     url: '/',
     version: null,
-    scrollRegions: [],
+    clearHistory: false,
+    encryptHistory: false,
     rememberedState: {},
   },
 })

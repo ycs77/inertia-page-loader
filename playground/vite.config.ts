@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
-import Inspect from 'vite-plugin-inspect'
 import InertiaPageLoader from 'inertia-page-loader/vite'
+import { defineConfig } from 'vite'
+import Inspect from 'vite-plugin-inspect'
 
 export default defineConfig({
   plugins: [

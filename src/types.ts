@@ -1,3 +1,5 @@
+import type { UnpluginContextMeta } from 'unplugin'
+
 declare global {
   // @ts-ignore
   // eslint-disable-next-line vars-on-top, no-var
@@ -72,6 +74,8 @@ export interface NamespacesArgs {
 }
 export type Namespaces = Namespace[] | ((args: NamespacesArgs) => Namespace[])
 
-export interface GenerateNamespacesCodeContextMeta {
-  framework: 'rollup' | 'vite' | 'rolldown' | 'webpack' | 'esbuild' | 'rspack' | 'farm'
+export interface PackageNamespaceExtractor {
+  (pkg: string, dir?: string): Namespace
 }
+
+export interface GenerateNamespacesCodeContextMeta extends Pick<UnpluginContextMeta, 'framework'> {}

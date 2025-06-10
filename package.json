@@ -2,7 +2,7 @@
   "name": "inertia-page-loader",
   "type": "module",
   "version": "0.8.0",
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@10.12.1",
   "description": "The plugin page loader for Inertia.js",
   "author": "Lucas Yang <yangchenshin77@gmail.com>",
   "license": "MIT",
@@ -26,44 +26,92 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    },
-    "./rspack": {
-      "import": "./dist/rspack.mjs",
-      "require": "./dist/rspack.cjs"
-    },
-    "./vite": {
-      "import": "./dist/vite.mjs",
-      "require": "./dist/vite.cjs"
-    },
-    "./webpack": {
-      "import": "./dist/webpack.mjs",
-      "require": "./dist/webpack.cjs"
-    },
-    "./rollup": {
-      "import": "./dist/rollup.mjs",
-      "require": "./dist/rollup.cjs"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./farm": {
-      "import": "./dist/farm.mjs",
-      "require": "./dist/farm.cjs"
+      "import": {
+        "types": "./dist/farm.d.mts",
+        "default": "./dist/farm.mjs"
+      },
+      "require": {
+        "types": "./dist/farm.d.cts",
+        "default": "./dist/farm.cjs"
+      }
+    },
+    "./rollup": {
+      "import": {
+        "types": "./dist/rollup.d.mts",
+        "default": "./dist/rollup.mjs"
+      },
+      "require": {
+        "types": "./dist/rollup.d.cts",
+        "default": "./dist/rollup.cjs"
+      }
+    },
+    "./rspack": {
+      "import": {
+        "types": "./dist/rspack.d.mts",
+        "default": "./dist/rspack.mjs"
+      },
+      "require": {
+        "types": "./dist/rspack.d.cts",
+        "default": "./dist/rspack.cjs"
+      }
     },
     "./runtime": {
-      "import": "./dist/runtime.mjs",
-      "require": "./dist/runtime.cjs"
+      "import": {
+        "types": "./dist/runtime.d.mts",
+        "default": "./dist/runtime.mjs"
+      },
+      "require": {
+        "types": "./dist/runtime.d.cts",
+        "default": "./dist/runtime.cjs"
+      }
     },
     "./types": {
-      "import": "./dist/types.mjs",
-      "require": "./dist/types.cjs"
+      "import": {
+        "types": "./dist/types.d.mts",
+        "default": "./dist/types.mjs"
+      },
+      "require": {
+        "types": "./dist/types.d.cts",
+        "default": "./dist/types.cjs"
+      }
     },
-    "./*": "./*"
+    "./vite": {
+      "import": {
+        "types": "./dist/vite.d.mts",
+        "default": "./dist/vite.mjs"
+      },
+      "require": {
+        "types": "./dist/vite.d.cts",
+        "default": "./dist/vite.cjs"
+      }
+    },
+    "./webpack": {
+      "import": {
+        "types": "./dist/webpack.d.mts",
+        "default": "./dist/webpack.mjs"
+      },
+      "require": {
+        "types": "./dist/webpack.d.cts",
+        "default": "./dist/webpack.cjs"
+      }
+    },
+    "./package.json": "./package.json"
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "unpkg": "dist/runtime.iife.js",
-  "jsdelivr": "dist/runtime.iife.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "unpkg": "./dist/runtime.iife.js",
+  "jsdelivr": "./dist/runtime.iife.js",
+  "types": "./dist/index.d.mts",
   "typesVersions": {
     "*": {
       "*": [
@@ -77,15 +125,14 @@
     "dist"
   ],
   "scripts": {
-    "build": "run-s build:plugin build:runtime",
-    "build:plugin": "tsup",
-    "build:runtime": "tsup --config tsup.runtime-config.ts",
+    "build": "tsdown",
     "build:fix": "tsx scripts/postbuild.ts",
-    "dev": "tsup --watch src",
+    "dev": "tsdown -w",
     "lint": "eslint .",
     "play": "npm -C playground run dev",
     "prepublishOnly": "npm run build",
     "release": "bumpp --commit \"Release v%s\" && pnpm publish",
+    "start": "tsx src/index.ts",
     "test": "vitest"
   },
   "peerDependencies": {
@@ -113,24 +160,24 @@
     }
   },
   "dependencies": {
-    "debug": "^4.3.6",
-    "fast-glob": "^3.3.2",
-    "unplugin": "^1.13.1"
+    "debug": "^4.4.1",
+    "fast-glob": "^3.3.3",
+    "unplugin": "^2.3.5"
   },
   "devDependencies": {
-    "@swc/core": "^1.7.23",
+    "@swc/core": "^1.11.31",
     "@types/debug": "^4.1.12",
-    "@types/node": "^18.19.50",
-    "@ycs77/eslint-config": "^3.0.1",
-    "bumpp": "^9.5.2",
-    "eslint": "^9.9.1",
-    "npm-run-all2": "^6.2.2",
-    "rollup": "^4.21.2",
-    "tsup": "^8.2.4",
-    "tsx": "^4.19.0",
-    "typescript": "~5.5.4",
-    "vite": "^5.4.3",
-    "vitest": "^2.0.5",
-    "webpack": "^5.94.0"
+    "@types/node": "^22.15.31",
+    "@ycs77/eslint-config": "^4.3.0",
+    "bumpp": "^10.1.1",
+    "eslint": "^9.28.0",
+    "npm-run-all2": "^8.0.4",
+    "rollup": "^4.42.0",
+    "tsdown": "^0.12.7",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.3",
+    "webpack": "^5.99.9"
   }
 }

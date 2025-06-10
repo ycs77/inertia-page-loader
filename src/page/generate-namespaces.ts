@@ -1,13 +1,16 @@
+import type { GenerateNamespacesCodeContextMeta, ResolvedOptions } from '../types'
 import path from 'node:path'
 import Debug from 'debug'
 import { generateImportGlobCode } from '../module/import'
 import { isViteLike, isWebpackLike } from '../utils'
-import type { GenerateNamespacesCodeContextMeta, ResolvedOptions } from '../types'
 import { resolveNamespaces } from './namespace-option'
 
 const debug = Debug('inertia-page-loader:page:generate-namespaces')
 
-export function generateNamespacesCode(options: ResolvedOptions, meta: GenerateNamespacesCodeContextMeta) {
+export function generateNamespacesCode(options: ResolvedOptions, meta: GenerateNamespacesCodeContextMeta): {
+  namespacesCode: string
+  importsCode: string
+} {
   const cwd = options.cwd
   const namespaces = resolveNamespaces(cwd, options.namespaces)
 

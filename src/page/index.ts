@@ -1,10 +1,9 @@
-/* eslint-disable style/indent */
 import type { UnpluginContextMeta } from 'unplugin'
 import type { ResolvedOptions } from '../types'
 import { isViteLike } from '../utils'
 import { generateNamespacesCode } from './generate-namespaces'
 
-export function pageLoader(options: ResolvedOptions, meta: UnpluginContextMeta) {
+export function pageLoader(options: ResolvedOptions, meta: UnpluginContextMeta): string {
   const { namespacesCode, importsCode } = generateNamespacesCode(options, meta)
 
   return `

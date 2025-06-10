@@ -1,6 +1,6 @@
 import { join } from 'node:path'
-import fg from 'fast-glob'
 import Debug from 'debug'
+import fg from 'fast-glob'
 
 const debug = Debug('inertia-page-loader:module:files')
 
@@ -21,11 +21,11 @@ export interface GetPageFilesOptions {
   exclude?: string[]
 }
 
-function getIgnore(exclude: string[]) {
+function getIgnore(exclude: string[]): string[] {
   return ['.git', '**/__*__/**', ...exclude]
 }
 
-function extsToGlob(extensions: string[]) {
+function extsToGlob(extensions: string[]): string {
   return extensions.length > 1 ? `{${extensions.join(',')}}` : extensions[0] || ''
 }
 

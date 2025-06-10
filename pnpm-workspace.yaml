@@ -1,2 +1,7 @@
 packages:
   - playground
+
+onlyBuiltDependencies:
+  - '@swc/core'
+  - core-js
+  - esbuild

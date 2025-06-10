@@ -1,8 +1,8 @@
-import { createUnplugin } from 'unplugin'
 import type { UnpluginContextMeta, UnpluginFactory } from 'unplugin'
+import type { Options, ResolvedOptions } from './types'
+import { createUnplugin } from 'unplugin'
 import { pageLoader } from './page'
 import { isViteLike, isWebpackLike } from './utils'
-import type { Options, ResolvedOptions } from './types'
 
 const ids = [
   '/~inertia',
@@ -11,7 +11,7 @@ const ids = [
   'virtual/inertia',
 ]
 
-function resolveOptions(options: Options, meta: UnpluginContextMeta) {
+function resolveOptions(options: Options, meta: UnpluginContextMeta): ResolvedOptions {
   let extensions = options.extensions
   if (isViteLike(meta.framework) && !extensions) {
     extensions = 'vue'

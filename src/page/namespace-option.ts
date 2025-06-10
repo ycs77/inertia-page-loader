@@ -1,8 +1,8 @@
+import type { Namespace, Namespaces, PackageNamespaceExtractor, ResolvedNamespace } from '../types'
 import fs from 'node:fs'
 import path from 'node:path'
-import type { Namespace, Namespaces, ResolvedNamespace } from '../types'
 
-export interface PackageNamespaceExtractorOptions {
+export interface CreatePackageNamespaceExtractorOptions {
   name: string
   filename: string
   dir: string
@@ -10,8 +10,8 @@ export interface PackageNamespaceExtractorOptions {
   parse: (content: string) => Namespace
 }
 
-export function createPackageNamespaceExtractor(options: PackageNamespaceExtractorOptions) {
-  return (pkg: string, dir: string = options.dir) => {
+export function createPackageNamespaceExtractor(options: CreatePackageNamespaceExtractorOptions): PackageNamespaceExtractor {
+  return (pkg, dir = options.dir) => {
     const fullpath = path.resolve(options.cwd, dir, pkg, options.filename)
     if (!fs.existsSync(fullpath)) {
       throw new Error(`[inertia-page-loader]: The ${options.name} "${pkg}" does not exist`)
@@ -34,7 +34,7 @@ export function createPackageNamespaceExtractor(options: PackageNamespaceExtract
   }
 }
 
-export function createNpm(cwd: string = process.cwd()) {
+export function createNpm(cwd: string = process.cwd()): PackageNamespaceExtractor {
   return createPackageNamespaceExtractor({
     name: 'NPM package',
     filename: 'package.json',
@@ -46,7 +46,7 @@ export function createNpm(cwd: string = process.cwd()) {
   })
 }
 
-export function createComposer(cwd: string = process.cwd()) {
+export function createComposer(cwd: string = process.cwd()): PackageNamespaceExtractor {
   return createPackageNamespaceExtractor({
     name: 'Composer package',
     filename: 'composer.json',
@@ -61,9 +61,9 @@ export function createComposer(cwd: string = process.cwd()) {
 export function resolveNamespaces(cwd: string, namespaces: Namespaces): ResolvedNamespace {
   const resolvedNamespaces = typeof namespaces === 'function'
     ? namespaces({
-      npm: createNpm(cwd),
-      composer: createComposer(cwd),
-    })
+        npm: createNpm(cwd),
+        composer: createComposer(cwd),
+      })
     : namespaces
 
   const output = {} as ResolvedNamespace

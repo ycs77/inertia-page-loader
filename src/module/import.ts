@@ -1,5 +1,5 @@
 import Debug from 'debug'
-import { type GetPageFilesOptions, getPageFiles } from './files'
+import { getPageFiles, type GetPageFilesOptions } from './files'
 
 const debug = {
   pages: Debug('inertia-page-loader:module:import:pages'),
@@ -18,7 +18,11 @@ export interface GenerateImportGlobCodeOptions extends GetPageFilesOptions {
   eager?: boolean
 }
 
-export function generateImportGlobCode(pattern: string, options: GenerateImportGlobCodeOptions = {}) {
+export function generateImportGlobCode(pattern: string, options: GenerateImportGlobCodeOptions = {}): {
+  imports: string
+  pages: string
+  start: number
+} {
   const { eager = false } = options
   let start = options.start ?? 0
 
